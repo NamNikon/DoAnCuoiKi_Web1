@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', function () {
-    return view('Home/index');
+
+Route::get('/admin/dashboard', function () {
+    return view('admin/mainLayout');
 });
+
+Route::get('/admin/user-manage', function () {
+    return view('admin/mainLayout');
+});
+
