@@ -17,7 +17,7 @@ class AdminController extends BaseController
 
     public function removeUser($id){
         DB::table('users')->where('id', '=', $id)->delete();
-        return redirect('/');
+        return redirect('admin/user-manage');
     }
 
     public function changeRole(Request $res)

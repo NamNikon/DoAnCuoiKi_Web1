@@ -57,8 +57,8 @@
              </tr>
          </thead>
          <tbody>
-            @if (@isset($uses))
-            @foreach ($uses as $user)
+            @if (@isset($users))
+            @foreach ($users as $user)
              <tr class="tr-shadow">
                  <td>
                      <label class="au-checkbox">
@@ -83,9 +83,9 @@
                          <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                              <i class="zmdi zmdi-edit"></i>
                          </button>
-                         <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                         <a href="/admin/delete/user/{{$user->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                              <i class="zmdi zmdi-delete"></i>
-                         </button>
+                        </a>
                          <button class="item" data-toggle="tooltip" data-placement="top" title="More">
                              <i class="zmdi zmdi-more"></i>
                          </button>
