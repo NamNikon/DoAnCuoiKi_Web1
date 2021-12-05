@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PagesController@Index');
 
-
 Route::get('/admin/dashboard', function () {
     return view('admin/mainLayout');
 });
