@@ -25,3 +25,8 @@ Route::get('/admin/user-manage', function () {
     return view('admin/mainLayout');
 });
 
+Route::get('/', 'PagesController@Index');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
