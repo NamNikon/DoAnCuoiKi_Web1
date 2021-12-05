@@ -268,7 +268,7 @@ section {
 /*Override Grid Bootstrap*/
 @media (min-width: 1200px) {
     .container {
-        max-width: 1320px;
+        /* max-width: 1320px; */
     }
 }
 
@@ -358,6 +358,7 @@ section {
     -moz-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    margin: 10px 0;
 }
 
 .login-checkbox label input[type="checkbox"] {
@@ -365,7 +366,7 @@ section {
 }
 
 .login-checkbox > label > a {
-    color: #ff2e44;
+    color: #333;
 }
 
 @media (max-width: 991px) {
@@ -495,6 +496,12 @@ section {
     background: #59bd60;
 }
 
+.au-btn--black {
+    background: #333;
+}
+.au-btn--black:hover {
+    background: rgb(78, 78, 78);
+}
 .au-btn-plus {
     position: absolute;
     height: 45px;
