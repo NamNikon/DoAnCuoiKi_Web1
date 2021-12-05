@@ -25,3 +25,7 @@ Route::get('/admin/user-manage', function () {
     return view('admin/mainLayout');
 });
 
+Route::get('/admin/login', function () {
+    return view('admin/auth/login');
+});
+
