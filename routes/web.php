@@ -13,21 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PagesController@Index');
-
-Route::get('/admin/dashboard', function () {
-    return view('admin/mainLayout');
+Route::get('/', function () {
+    return view('welcome');
 });
-
-Route::get('/admin/user-manage', function () {
-    return view('admin/mainLayout');
+Route::get('/home', function () {
+    return view('Home/index');
 });
-
-Route::get('/admin/login', function () {
-    return view('admin/auth/login');
-});
-
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
