@@ -50,47 +50,47 @@
                     <div class="image img-cir img-120">
                         <img src="{{asset('images/icon/avatar-big-01.jpg')}}" alt="John Doe" />
                     </div>
-                    <h4 class="name">PHÚ CƯỜNG</h4>
-                    <a href="#">Đăng xuất</a>
+                    <h4 class="name">PHU CUONG</h4>
+                    <a href="#">Logout</a>
                 </div>
                 <nav class="navbar-sidebar2">
                     <ul class="list-unstyled navbar__list">
                         <li class="{{ Request::is('admin/dashboard') ? 'active' : ''}} has-sub">
                             <a class="js-arrow" href="/admin/dashboard">
-                                <i class="fas fa-home"></i>Tranh chủ
+                                <i class="fas fa-home"></i>Dashboard
                             </a>
                         </li>
                         <li class="{{ Request::is('admin/user-manage') ? 'active' : ''}}">
                             <a href="/admin/user-manage">
-                                <i class="fas fa-user"></i>Người dùng</a>
+                                <i class="fas fa-user"></i>Users</a>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-shopping-basket"></i>Sản phẩm
+                                <i class="fas fa-shopping-basket"></i>Products
                                 <span class="arrow">
                                     <i class="fas fa-angle-down"></i>
                                 </span>
                             </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="#">
-                                        <i class="fas fa-table"></i>Danh sách sản phẩm</a>
+                                    <a href="/admin/product-list">
+                                        <i class="fas fa-table"></i>List Products</a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <i class="fas fa-plus-square"></i>Thêm sản phẩm mới</a>
+                                    <a href="/admin/product-add-new">
+                                        <i class="fas fa-plus-square"></i>Add new Product</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="">
                             <a class="" href="#">
-                                <i class="fas fa-shopping-cart"></i>Đơn hàng
+                                <i class="fas fa-shopping-cart"></i>Purchage
                             </a>
                            
                         </li>
                         <li class="">
                             <a href="#">
-                                <i class="fas fa-bar-chart-o"></i>Thống kê
+                                <i class="fas fa-bar-chart-o"></i>Statistic
                             </a>
                         </li>
                         
@@ -331,16 +331,15 @@
                                     <div class="au-breadcrumb-left">
                                         <ul class="list-unstyled list-inline au-breadcrumb__list">
                                             <li class="list-inline-item active">
-                                                <a href="#">Trang chủ</a>
+                                                <a href="#">Home</a>
                                             </li>
                                             <li class="list-inline-item seprate">
                                                 <span>/</span>
                                             </li>
-                                            <li class="list-inline-item">Người dùng</li>
+                                            <li class="list-inline-item">User</li>
                                         </ul>
                                     </div>
-                                    <button class="au-btn au-btn-icon au-btn--green">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -349,12 +348,25 @@
             </section>
             <!-- END BREADCRUMB-->
             
+            {{-- DASHBOARD --}}
             @if (Request::is('admin/dashboard'))
                 @include('admin.dashboard.home')
             @endif
 
+            {{-- USER MANAGER --}}
             @if (Request::is('admin/user-manage'))
                 @include('admin.userManage.listUser')
+            @endif
+
+            {{-- PRODUCT MANAGER --}}
+            @if (Request::is('admin/product-list'))
+                @include('admin.products.listProducts')
+            @endif
+
+            
+            {{-- ADD PRODUCT --}}
+            @if (Request::is('admin/product-add-new'))
+                @include('admin.products.addProduct')
             @endif
 
             <section>

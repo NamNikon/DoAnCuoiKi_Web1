@@ -10,8 +10,10 @@ class AdminController extends BaseController
     public function viewUsers()
     {
         $users = DB::table('users')->get();
+        $roles = DB::table('auth')->get();
         return view('admin.mainLayout', [
-            'users' => $users
+            'users' => $users,
+            'roles' => $roles
         ]);
     }
 

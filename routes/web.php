@@ -23,6 +23,15 @@ Route::get('/admin/user-manage', 'AdminController@viewUsers');
 
 Route::get('/admin/delete/user/{id}', 'AdminController@removeUser');
 
+Route::get('/admin/product-list', function () {
+    return view('admin/mainLayout');
+});
+
+Route::get('/admin/product-add-new', function () {
+    return view('admin/mainLayout');
+});
+
+
 Route::get('/admin/login', function () {
     return view('admin/auth/login');
 });
