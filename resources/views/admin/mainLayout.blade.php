@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Administration</title>
+    <title>Dashboard 2</title>
 
     <!-- Fontfaces CSS-->
     <link href="{{asset('css/font-face.css')}}" rel="stylesheet" media="all">
@@ -50,47 +50,47 @@
                     <div class="image img-cir img-120">
                         <img src="{{asset('images/icon/avatar-big-01.jpg')}}" alt="John Doe" />
                     </div>
-                    <h4 class="name">PHU CUONG</h4>
-                    <a href="#">Logout</a>
+                    <h4 class="name">PHÚ CƯỜNG</h4>
+                    <a href="#">Đăng xuất</a>
                 </div>
                 <nav class="navbar-sidebar2">
                     <ul class="list-unstyled navbar__list">
                         <li class="{{ Request::is('admin/dashboard') ? 'active' : ''}} has-sub">
                             <a class="js-arrow" href="/admin/dashboard">
-                                <i class="fas fa-home"></i>Dashboard
+                                <i class="fas fa-home"></i>Tranh chủ
                             </a>
                         </li>
                         <li class="{{ Request::is('admin/user-manage') ? 'active' : ''}}">
                             <a href="/admin/user-manage">
-                                <i class="fas fa-user"></i>Users</a>
+                                <i class="fas fa-user"></i>Người dùng</a>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-shopping-basket"></i>Products
+                                <i class="fas fa-shopping-basket"></i>Sản phẩm
                                 <span class="arrow">
                                     <i class="fas fa-angle-down"></i>
                                 </span>
                             </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="/admin/product-list">
-                                        <i class="fas fa-table"></i>List Products</a>
+                                    <a href="#">
+                                        <i class="fas fa-table"></i>Danh sách sản phẩm</a>
                                 </li>
                                 <li>
-                                    <a href="/admin/product-add-new">
-                                        <i class="fas fa-plus-square"></i>Add new Product</a>
+                                    <a href="#">
+                                        <i class="fas fa-plus-square"></i>Thêm sản phẩm mới</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="">
                             <a class="" href="#">
-                                <i class="fas fa-shopping-cart"></i>Purchage
+                                <i class="fas fa-shopping-cart"></i>Đơn hàng
                             </a>
                            
                         </li>
                         <li class="">
                             <a href="#">
-                                <i class="fas fa-bar-chart-o"></i>Statistic
+                                <i class="fas fa-bar-chart-o"></i>Thống kê
                             </a>
                         </li>
                         
@@ -331,15 +331,16 @@
                                     <div class="au-breadcrumb-left">
                                         <ul class="list-unstyled list-inline au-breadcrumb__list">
                                             <li class="list-inline-item active">
-                                                <a href="#">Home</a>
+                                                <a href="#">Trang chủ</a>
                                             </li>
                                             <li class="list-inline-item seprate">
                                                 <span>/</span>
                                             </li>
-                                            <li class="list-inline-item">User</li>
+                                            <li class="list-inline-item">Người dùng</li>
                                         </ul>
                                     </div>
-                                    
+                                    <button class="au-btn au-btn-icon au-btn--green">
+                                        <i class="zmdi zmdi-plus"></i>add item</button>
                                 </div>
                             </div>
                         </div>
@@ -348,25 +349,12 @@
             </section>
             <!-- END BREADCRUMB-->
             
-            {{-- DASHBOARD --}}
             @if (Request::is('admin/dashboard'))
                 @include('admin.dashboard.home')
             @endif
 
-            {{-- USER MANAGER --}}
             @if (Request::is('admin/user-manage'))
                 @include('admin.userManage.listUser')
-            @endif
-
-            {{-- PRODUCT MANAGER --}}
-            @if (Request::is('admin/product-list'))
-                @include('admin.products.listProducts')
-            @endif
-
-            
-            {{-- ADD PRODUCT --}}
-            @if (Request::is('admin/product-add-new'))
-                @include('admin.products.addProduct')
             @endif
 
             <section>

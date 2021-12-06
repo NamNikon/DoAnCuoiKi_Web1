@@ -14656,14 +14656,3 @@ section {
 .vue-lists ul, .vue-lists ol {
     padding-left: 30px;
 }
-
-/* add on 05.12.2021 */
-
-.my-select .text-admin {
-    background-color: #00a2e3;
-
-}
-
-.my-select .text-user {
-    background-color: #ff4b5a;
-}
