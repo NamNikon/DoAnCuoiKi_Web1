@@ -27,7 +27,7 @@ jobs:
         with:
           files: 'composer.json'
 
-      - name: Run composer install if composer.json exists
+      - name: Run composer update
         if: steps.check_files.outputs.files_exists == 'true'
         run: composer update
 
