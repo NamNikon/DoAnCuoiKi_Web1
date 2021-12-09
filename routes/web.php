@@ -39,6 +39,11 @@ Route::get('/admin/login', function () {
 });
 
 
+Route::get('/user', function () {
+    return view('users/mainLayoutUser');
+});
+
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
