@@ -33,7 +33,7 @@
          <tbody>
             @if (@isset($users))
             @foreach ($users as $user)
-             <tr class="tr-shadow">
+             <tr class="tr-shadow" id="{{ $user->id }}">
                 <td>{{$user->id}}</td> 
                 <td>{{$user->name}}</td>
                  <td>
@@ -41,7 +41,7 @@
                  </td>
                  <td>{{$user->created_at}}</td>
                  <td>
-                    <select name="select" id="select_role" class="my-select form-control">
+                    <select name="select" id="select_role" class="my-select form-control changeRole">
                         @foreach ($roles as $key)
                         @if ($key->id ==  $user->role )
                             <option value="{{ $user->role }}"
