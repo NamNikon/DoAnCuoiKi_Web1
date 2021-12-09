@@ -1670,24 +1670,4 @@
     console.log(error);
   }
 
-  // changeRole
-  $('.changeRole').on('change', function() {
-    var id = $(this).closest('tr').attr('id');
-    var value = $(this).val();
-    console.log(id, value);
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    $.ajax({
-        type: "POST",
-        url: "/admin/changeRole",
-        data: {
-            id: id,
-            value: value
-        }
-    })
-})
-
 })(jQuery);
