@@ -41,6 +41,25 @@ Route::get('/user', function () {
     return view('users/mainLayoutUser');
 });
 
+Route::get('/search', function () {
+    return view('users/search/searchPage');
+});
+
+Route::get('/product/details', function () {
+    return view('users/products/productDetails');
+});
+
+Route::get('/payment/cart', function () {
+    return view('users/payment/cartDetails');
+});
+
+Route::get('/payment/checkout', function () {
+    return view('users/payment/checkout');
+});
+
+Route::get('/account', function () {
+    return view('users/account/account');
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
