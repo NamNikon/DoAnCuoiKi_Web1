@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends BaseController
 {
+    private $limit = 10;
     public function viewUsers()
     {
-        $users = DB::table('users')->get();
+        $users = DB::table('users')->simplePaginate($this->limit);
         $roles = DB::table('auth')->get();
         return view('admin.mainLayout', [
             'users' => $users,
@@ -36,7 +37,7 @@ class AdminController extends BaseController
     {
         $products = DB::table('products')
                     ->join('information', 'products.id_infomation', '=', 'information.id')
-                    ->get();
+                    ->simplePaginate($this->limit);
         return view('admin.mainLayout', [
             'products' => $products
         ]);
