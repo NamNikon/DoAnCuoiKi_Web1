@@ -31,4 +31,14 @@ class AdminController extends BaseController
             ->where('id', '=', $data['id'])
             ->update(['role' => $data['value']]);
     }
+
+    public function viewProducts()
+    {
+        $products = DB::table('products')
+                    ->join('information', 'products.id_infomation', '=', 'information.id')
+                    ->get();
+        return view('admin.mainLayout', [
+            'products' => $products
+        ]);
+    }
 }
