@@ -15,16 +15,17 @@
              </tr>
          </thead>
          <tbody>
-            {{-- @if (@isset($products)) --}}
-            {{-- @foreach ($product as $products) --}}
+            @if (@isset($products))
+            @foreach ($products as $product)
              <tr class="tr-shadow">
-                <td>1</td> 
-                <td>DELL</td>
+                <td>{{$product->id}}</td> 
+                <td>{{$product->products_name}}</td>
              </tr>
-            {{-- @endforeach --}}
-            {{-- @endif --}}
+            @endforeach
+            @endif
          </tbody>
      </table>
+     {{ $products->links() }}
  </div>
  <!-- END DATA TABLE -->
             </div>

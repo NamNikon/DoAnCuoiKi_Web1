@@ -31,12 +31,37 @@ Route::get('/admin/product-add-new', function () {
     return view('admin/mainLayout');
 });
 
-
 Route::get('/admin/login', function () {
     return view('admin/auth/login');
 });
 
+Route::get('/user', function () {
+    return view('users/mainLayoutUser');
+});
+
+Route::get('/search', function () {
+    return view('users/search/searchPage');
+});
+
+Route::get('/product/details', function () {
+    return view('users/products/productDetails');
+});
+
+Route::get('/addcart/{productId}','CartController@AddItem')->name('cart.add');
+Route::get('/payment/cart', 'CartController@CartDetail')->name("cart.list");
+
+Route::get('/payment/checkout', function () {
+    return view('users/payment/checkout');
+});
+
+Route::get('/account', function () {
+    return view('users/account/account');
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/test', function (){
+    phpinfo();
+});
