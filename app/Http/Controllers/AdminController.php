@@ -73,7 +73,7 @@ class AdminController extends BaseController
         $msg = '';
         $validator = Validator::make($res->all(), $rule, $customMessage);
         if ($validator->fails()) {
-            return redirect('/')
+            return redirect('admin/product-add-new')
                 ->withInput()
                 ->withErrors($validator);
         } else {
