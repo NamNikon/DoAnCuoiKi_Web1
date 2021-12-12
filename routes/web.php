@@ -23,6 +23,8 @@ Route::get('/admin/user-manage', 'AdminController@viewUsers');
 
 Route::get('/admin/delete/user/{id}', 'AdminController@removeUser');
 
+Route::post('/admin/changeRole', 'AdminController@changeRole');
+
 Route::get('/admin/product-list', function () {
     return view('admin/mainLayout');
 });
