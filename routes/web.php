@@ -33,6 +33,8 @@ Route::get('/admin/product-add-new', function () {
     return view('admin/mainLayout');
 });
 
+Route::post('/admin/product-add-new', 'AdminController@addProduct');
+
 Route::get('/admin/login', function () {
     return view('admin/auth/login');
 });
