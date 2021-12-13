@@ -46,7 +46,7 @@
                         @foreach ($roles as $key)
                         @if ($key->id ==  $user->role )
                             <option value="{{ $user->role }}"
-                            selected="selected" 
+                            selected="selected"
                             >
                         @else 
                         <option value="{{ $key->id}}">

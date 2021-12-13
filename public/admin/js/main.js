@@ -1695,5 +1695,11 @@
        },
     });
   })
+  //select category
+  $('#select_cat').on('change', function() {
+    let catId = $(this).val();
+    console.log(catId);
+    $('#catId').val(catId);
+  })
 
 })(jQuery);

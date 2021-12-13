@@ -16,9 +16,20 @@
         </div>
         <div class="form-group has-success">
             <label for="cc-name" class="control-label mb-1">Category</label>
-            <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
+            @if (@isset($categories))
+                <select name="select" id="select_cat" class="my-select form-control">
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">
+                        {{ $category->name }}
+                    </option>
+                    @endforeach
+                    
+                </select>
+                <input type="hidden" id="catId" name="catId" value="{{ $categories[0]->id }}">
+            @endif
+            <!-- <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
                 autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
-            <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+            <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span> -->
         </div>
         <div class="form-group">
             <label for="price" class="control-label mb-1">Price</label>

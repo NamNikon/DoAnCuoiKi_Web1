@@ -29,9 +29,7 @@ Route::get('/admin/product-list', function () {
     return view('admin/mainLayout');
 });
 
-Route::get('/admin/product-add-new', function () {
-    return view('admin/mainLayout');
-});
+Route::get('/admin/product-add-new', 'AdminController@getCategories');
 
 Route::post('/admin/product-add-new', 'AdminController@addProduct');
 

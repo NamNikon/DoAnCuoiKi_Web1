@@ -44,6 +44,14 @@ class AdminController extends BaseController
         ]);
     }
 
+    public function getCategories()
+    {
+        $categories = DB::table('categories')->get();
+        return view('admin.mainLayout', [
+            'categories' => $categories
+        ]);
+    }
+
     public function addProduct(Request $res)
     {
         $data = $res->input();
@@ -81,6 +89,7 @@ class AdminController extends BaseController
                 'products_name' => $data['name'],
                 'quantity' => $data['quantity'],
                 'price' => $data['price'],
+                'category' => $data['catId'],
             ]);
             // $lastItem = DB::table('Products')->latest()->first();
             // $id_Product = $lastItem->id_product;
@@ -106,8 +115,10 @@ class AdminController extends BaseController
             // } else {
             //     $msg = "Thêm sản phẩm thất bại, số lượng ảnh tối thiểu phải là 3";
             // }
-            // $categories = DB::table('Categories')->get();
-            return view('admin.mainLayout')->with('msg', "$msg");
+            $categories = DB::table('categories')->get();
+            return view('admin.mainLayout', [
+                'categories' => $categories
+            ])->with('msg', "$msg");
         }
     }
 }
