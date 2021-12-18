@@ -39,7 +39,6 @@ class CartController extends Controller
             ]
         ]);
         return redirect('payment/cart');
-
     }
 
     public function DeleteItem(Request $request, $productId){
