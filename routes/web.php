@@ -37,9 +37,7 @@ Route::get('/admin/login', function () {
     return view('admin/auth/login');
 });
 
-Route::get('/user', function () {
-    return view('users/mainLayoutUser');
-});
+Route::get('/user', 'PagesController@Index');
 
 Route::get('/search', function () {
     return view('users/search/searchPage');
