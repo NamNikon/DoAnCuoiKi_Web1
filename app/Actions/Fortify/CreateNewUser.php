@@ -11,6 +11,7 @@ use Laravel\Jetstream\Jetstream;
 class CreateNewUser implements CreatesNewUsers
 {
     use PasswordValidationRules;
+    echo'chào mừng đén với chũng tôi';
 
     /**
      * Validate and create a newly registered user.
