@@ -33,7 +33,6 @@
                 </div>
             @endif
         </x-slot>
-
         <x-slot name="actions">
             <x-jet-action-message class="mr-3" on="created">
                 {{ __('Created.') }}
