@@ -91,24 +91,24 @@ class AdminController extends BaseController
                 'price' => $data['price'],
                 'category' => $data['catId'],
             ]);
-            // $lastItem = DB::table('Products')->latest()->first();
-            // $id_Product = $lastItem->id_product;
-            // foreach ($res->file('images') as $img) {
-            //     // Cấp quyền lưu file
-            //     Cloudder::upload($img->getRealPath(),"" ,array("width"=>200, "height"=>200));
+             $lastItem = DB::table('Products')->latest()->first();
+             $id_Product = $lastItem->id_product;
+             foreach ($res->file('images') as $img) {
+                 // Cấp quyền lưu file
+                 Cloudder::upload($img->getRealPath(),"" ,array("width"=>200, "height"=>200));
 
 
-            //     $name = Cloudder::getResult();
-            //     DB::table('Image')->insert([
-            //         'id_product' => $id_Product,
-            //         'image' => $name['url'],
-            //     ]);
-            // }
-            // // Cập nhật avatar mặc định cho sản phẩm
-            // $images = DB::table('Image')->where('id_product', '=', $id_Product)->get()->first();
-            // DB::table('Products')
-            //     ->where('id_product', $id_Product)
-            //     ->update(['avatar' => $images->image]);
+                 $name = Cloudder::getResult();
+                 DB::table('Image')->insert([
+                     'id_product' => $id_Product,
+                     'image' => $name['url'],
+                 ]);
+             }
+              // Cập nhật avatar mặc định cho sản phẩm
+             $images = DB::table('Image')->where('id_product', '=', $id_Product)->get()->first();
+             DB::table('Products')
+                 ->where('id_product', $id_Product)
+                 ->update(['avatar' => $images->image]);
             $msg = "Thêm sản phẩm thành công";
             // if (count($res->file('images')) >= 3) {
                 
