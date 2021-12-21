@@ -13,6 +13,7 @@ return [
     */
 
     'calculator' => \Gloudemans\Shoppingcart\Calculation\DefaultCalculator::class,
+    
 
     /*
     |--------------------------------------------------------------------------
