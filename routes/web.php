@@ -49,7 +49,7 @@ Route::get('/product/details', function () {
 
 Route::get('/add-product-cart/{productId}','CartController@AddItem')->name('cart.add');
 Route::get('/payment/cart', 'CartController@CartDetail')->name("cart.list");
-Route::get('/remove-product-cart/{productId}','CartController@DeleteItem')->name('cart.remove');
+Route::get('/remove-product-cart/{productId}','CartController@DeleteItem')->name('cart.remove');0
 
 Route::get('/payment/checkout', function () {
     return view('users/payment/checkout');
