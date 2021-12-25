@@ -110,11 +110,11 @@ class AdminController extends BaseController
             //     ->where('id_product', $id_Product)
             //     ->update(['avatar' => $images->image]);
             $msg = "Thêm sản phẩm thành công";
-            // if (count($res->file('images')) >= 3) {
+             if (count($res->file('images')) >= 3) {
                 
-            // } else {
-            //     $msg = "Thêm sản phẩm thất bại, số lượng ảnh tối thiểu phải là 3";
-            // }
+            } else {
+                 $msg = "Thêm sản phẩm thất bại, số lượng ảnh tối thiểu phải là 3";
+             }
             $categories = DB::table('categories')->get();
             return view('admin.mainLayout', [
                 'categories' => $categories

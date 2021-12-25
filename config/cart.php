@@ -13,6 +13,7 @@ return [
     */
 
     'calculator' => \Gloudemans\Shoppingcart\Calculation\DefaultCalculator::class,
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ return [
     | Taxable interface and use the HasTax trait.
     |
     */
+
 
     'tax' => 21,
 
@@ -43,6 +45,7 @@ return [
         'table' => 'shoppingcart',
 
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -75,5 +78,6 @@ return [
         'thousand_separator' => ',',
 
     ],
+    
 
 ];

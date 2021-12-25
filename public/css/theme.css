@@ -212,6 +212,7 @@ strong {
     margin-bottom: 10px;
 }
 
+
 /* ----- Links ----- */
 a {
     display: inline-block;
@@ -220,16 +221,16 @@ a {
 a:hover,
 a:focus,
 a:active {
-    text-decoration: none;
+    text-decoration:  none;
     outline: none;
 }
 
 a:hover,
 a {
     -webkit-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
+    -o-transition: all 0.3s  ease;
     -moz-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+    transition:  all 0.3s ease;
 }
 
 /*-----------------------------------------------------*/
@@ -246,11 +247,11 @@ section {
     z-index: 1;
 }
 
-.section__content--w1830 {
+.section__content--w1830  {
     max-width: 1830px;
 }
 
-.section__content--p30 {
+.section__content--p30  {
     padding: 0 30px;
 }
 
@@ -266,9 +267,10 @@ section {
 
 /* ----- Page Wrapper----- */
 /*Override Grid Bootstrap*/
+
 @media (min-width: 1200px) {
-    .container {
-        /* max-width: 1320px; */
+.page-container {
+         max-width: 1320px; 
     }
 }
 

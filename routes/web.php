@@ -35,9 +35,7 @@ Route::get('/admin/login', function () {
     return view('admin/auth/login');
 });
 
-Route::get('/user', function () {
-    return view('users/mainLayoutUser');
-});
+Route::get('/user', 'PagesController@Index');
 
 Route::get('/search', function () {
     return view('users/search/searchPage');
@@ -50,7 +48,6 @@ Route::get('/product/details', function () {
 Route::get('/add-product-cart/{productId}','CartController@AddItem')->name('cart.add');
 Route::get('/payment/cart', 'CartController@CartDetail')->name("cart.list");
 Route::get('/remove-product-cart/{productId}','CartController@DeleteItem')->name('cart.remove');
-
 Route::get('/payment/checkout', function () {
     return view('users/payment/checkout');
 });
