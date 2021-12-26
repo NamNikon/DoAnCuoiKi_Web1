@@ -45,12 +45,10 @@ Route::get('/product/details', function () {
     return view('users/products/productDetails');
 });
 
-Route::get('/add-product-cart/{productId}','CartController@AddItem')->name('cart.add');
-Route::get('/payment/cart', 'CartController@CartDetail')->name("cart.list");
-Route::get('/remove-product-cart/{productId}','CartController@DeleteItem')->name('cart.remove');
-Route::get('/payment/checkout', function () {
-    return view('users/payment/checkout');
-});
+Route::get('/product/add-to-cart/{productId}','CartController@AddItem')->name('cart.add');
+Route::get('/product/remove-to-cart/{productId}','CartController@DeleteItem')->name('cart.remove');
+Route::get('/payment/checkout', 'CartController@CartDetail')->name('cart.list');
+Route::post('/payment/checkout','CartController@ProcessCheckout')->name('process.checkout');
 
 Route::get('/account', function () {
     return view('users/account/account');
