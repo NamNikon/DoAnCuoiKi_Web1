@@ -11,7 +11,7 @@ class CartController extends Controller
     {
         $items = \Cart::getContent();
         $toalMoney = \Cart::gettotal();
-        return view('users.account.account')->with([
+        return view('users.payment.cartDetails')->with([
             "cartList" => $items,
             "totalMoney" => $toalMoney
         ]);
@@ -19,7 +19,6 @@ class CartController extends Controller
 
     public function AddItem(Request $request, $productId)
     {
-        $data = $request->input();
         $product = DB::table('products')
             ->where('id', '=', $productId)
             ->get()->first();
@@ -28,23 +27,78 @@ class CartController extends Controller
         $imageProduct = DB::table('images')
             ->where("id", '=', $product->id_image)
             ->get()->first();
+        if ($product->quantity >= 1) {
+            \Cart::add([
+                'id' => $productId,
+                'name' => $product->products_name,
+                'price' => $product->price,
+                'quantity' => 1,
+                'attributes' => [
+                    'image' => $imageProduct->path
+                ]
+            ]);
+            session()->flash("success", "Add product is successful");
+            return redirect()->route('cart.list');
+        } else {
+            session()->flash("failure", "Add product is successful");
+            return redirect()->route('cart.list');
+        }
 
-        \Cart::add([
-            'id' => $productId,
-            'name' => $product->products_name,
-            'price' => $product->price,
-            'quantity' => 1,
-            'attributes' => [
-                'image' => $imageProduct->path
-            ]
-        ]);
-        return redirect('payment/cart');
     }
 
-    public function DeleteItem(Request $request, $productId){
+    public function DeleteItem(Request $request, $productId)
+    {
         \Cart::remove($productId);
         session()->flash('success', 'Item Cart Remove Successfully !');
 
+        return redirect()->route('cart.list');
+    }
+
+    public function ProcessCheckout(Request $request)
+    {
+        //Get user current
+        $user = auth()->user();
+        //Get data input
+        $data = $request->input();
+        //Get product in cart
+        $items = \Cart::getContent();
+        // Get total price
+        $toalMoney = \Cart::gettotal();
+
+        $id = DB::table('orders')->insertGetId(
+            [
+                'total' => $toalMoney,
+                'address' => $data['address'],
+                'user_id' => $user->id
+            ]
+        );
+        DB::beginTransaction();
+        $result = false;
+        foreach ($items as $item) {
+            DB::table('products')
+                ->where('id', $item->id)
+                ->decrement('quantity', $item->quantity);
+            $result = DB::table("order_details")->insert(
+                [
+                    "id_order" => $id,
+                    "product_id" => $item->id,
+                    "quantity" => $item->quantity
+                ]
+            );
+            if($result==true){
+                continue;
+            }else{
+                DB::rollBack();
+                session()->flash("failure", "Payment failed");
+                break;
+            }
+        }
+
+        if ($result == true) {
+            DB::commit();
+            session()->flash("success", "Payment success");
+            \Cart::clear();
+        }
         return redirect()->route('cart.list');
     }
 }
