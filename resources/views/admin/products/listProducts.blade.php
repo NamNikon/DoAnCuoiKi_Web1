@@ -25,8 +25,11 @@
             @endif
          </tbody>
      </table>
-     {{ $products->links() }}
  </div>
+<div class="row">
+    {{ $products->links() }}
+</div>
+
  <!-- END DATA TABLE -->
             </div>
         </div>
