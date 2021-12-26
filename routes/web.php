@@ -59,3 +59,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/test', function (){
     phpinfo();
 });
+
+
+
+
+Route::get('admin/purchages', function() {
+    return view('/admin/mainLayout');
+});

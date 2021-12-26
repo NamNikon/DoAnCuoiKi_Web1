@@ -11,7 +11,10 @@
              <tr>
                  <th>id</th>
                  <th>name</th>
-                
+                 <th>Category</th>
+                 <th>Quantity</th>
+                 <th>Liked</th>
+                 <th>DELETE</th>
              </tr>
          </thead>
          <tbody>
@@ -20,15 +23,31 @@
              <tr class="tr-shadow">
                 <td>{{$product->id}}</td> 
                 <td>{{$product->products_name}}</td>
+                <td>{{$product->name}}</td>
+                <td>{{$product->quantity}}</td>
+                <td>{{$product->liked}}</td>
+                <td>
+                    <div class="table-data-feature">
+                        <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                            <i class="zmdi zmdi-delete"></i>
+                       </a>
+                    </div>
+                </td>
              </tr>
             @endforeach
             @endif
          </tbody>
      </table>
+     <div class="form-group">
+         <div class="row">
+             <div class="col">
+                {{ $products->render('admin/common/paging') }}
+             </div>
+         </div>
+        
+    </div>
  </div>
-<div class="row">
-    {{ $products->links() }}
-</div>
+
 
  <!-- END DATA TABLE -->
             </div>

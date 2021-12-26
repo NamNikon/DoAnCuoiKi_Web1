@@ -87,7 +87,7 @@
                             </ul>
                         </li>
                         <li class="">
-                            <a class="" href="#">
+                            <a class="" href="/admin/purchanges">
                                 <i class="fas fa-shopping-cart"></i>Purchage
                             </a>
                            
@@ -372,6 +372,12 @@
             @if (Request::is('admin/product-add-new'))
                 @include('admin.products.addProduct')
             @endif
+
+            {{-- LIST PURCHAGES --}}
+            @if (Request::is('admin/purchages'))
+                @include('admin.purchages.listPurchages')
+            @endif
+
 
             <section>
                 <div class="container-fluid">
