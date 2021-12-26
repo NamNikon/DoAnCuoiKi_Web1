@@ -11,7 +11,7 @@
     <form action="/admin/product-add-new" method="post" novalidate="novalidate">
     {{ csrf_field() }}
         <div class="form-group">
-            <label for="name" class="control-label mb-1">Name</label>
+            <label for="name" class="control-label mb-1">Product Name</label>
             <input id="cc-pament" name="name" type="text" class="form-control" aria-required="true" aria-invalid="false">
         </div>
         <div class="form-group has-success">
@@ -32,31 +32,92 @@
             <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span> -->
         </div>
         <div class="form-group">
-            <label for="price" class="control-label mb-1">Price</label>
-            <input id="cc-number" name="price" type="tel" class="form-control cc-number identified visa" value="" data-val="true"
-                data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
-                autocomplete="cc-number">
-            <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="price" class="control-label mb-1">Price</label>
+                        <input id="price" name="price" type="number" class="form-control cc-exp" min="0">
+                        <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
+                </div>
+                <div class="col">
                     <label for="quantity" class="control-label mb-1">Quantity</label>
-                    <input id="cc-exp" name="quantity" type="tel" class="form-control cc-exp" value="" autocomplete="cc-exp">
-                    <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
-                </div>
-            </div>
-            <div class="col-6">
-                <label for="x_card_code" class="control-label mb-1">Security code</label>
-                <div class="input-group">
-                    <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code"
-                        data-val-cc-cvc="Please enter a valid security code" autocomplete="off">
-
+                        <input id="quantity" name="quantity" type="number" class="form-control cc-exp" value="" autocomplete="cc-exp"
+                        min="0">
+                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>     
                 </div>
             </div>
         </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="cpu" class="control-label mb-1">CPU</label>
+                    <input id="cpu" name="cpu" type="text" class="form-control cc-exp" value="" autocomplete="cc-exp">
+                    <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>    
+                </div>
+                <div class="col">
+                    <label for="ram" class="control-label mb-1">RAM</label>
+                    <input id="ram" name="ram" type="text" class="form-control cc-exp" value="" autocomplete="cc-exp">
+                    <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>  
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="rom" class="control-label mb-1">ROM</label>
+                    <input id="rom" name="rom" type="text" class="form-control cc-exp" value="" autocomplete="cc-exp">
+                    <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>    
+                </div>
+                <div class="col">
+                    <label for="gpu" class="control-label mb-1">GPU</label>
+                    <input id="gpu" name="gpu" type="text" class="form-control cc-exp" value="" autocomplete="cc-exp">
+                    <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>  
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="screen" class="control-label mb-1">SCREEN</label>
+                    <input id="screen" name="screen" type="text" class="form-control cc-exp" value="" autocomplete="cc-exp">
+                    <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>    
+                </div>
+                <div class="col">
+                    <label for="operating_system" class="control-label mb-1">Operating System</label>  {{-- HỆ ĐIỀU HÀNH --}}
+                    <input id="operating_system" name="operating_system" type="text" class="form-control cc-exp" value="" autocomplete="cc-exp">
+                    <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>  
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="weight" class="control-label mb-1">WEIGHT</label>
+                    <input id="weight" name="weight" type="text" class="form-control cc-exp" value="" autocomplete="cc-exp">
+                    <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>    
+                </div>
+             
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4">
+                    <label for="file-input" class="form-control-label">Main Image</label> {{-- CHỌN 1 ẢNH --}}
+                    <input type="file" id="file-input" name="file-input" class="form-control-file">
+                </div>
+               <div class="col-8">
+                    <label for="file-input" class="form-control-label">Image Details</label> {{-- CHỌN NHIỀU ẢNH --}}               
+                    <input type="file" id="file-input" name="file-input" class="form-control-file">
+               </div>
+            </div>
+        </div>
+
         <div>
-            <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+            <button id="payment-button" type="submit" class="btn btn-primary btn-lg btn-block">
+                <i class="fa fa-plus"></i>
                 <span id="payment-button-amount">Add</span>
                 <span id="payment-button-sending" style="display:none;">Sending…</span>
             </button>
