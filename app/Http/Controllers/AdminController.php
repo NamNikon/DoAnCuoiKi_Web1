@@ -38,6 +38,7 @@ class AdminController extends BaseController
     {
         $products = DB::table('products')
                     ->join('information', 'products.id_infomation', '=', 'information.id')
+                    ->join('categories', 'products.category', '=', 'categories.id')
                     ->orderBy('products.id')
                     ->paginate($this->limit);
         return view('admin.mainLayout', [
