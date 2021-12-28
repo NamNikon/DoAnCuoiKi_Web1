@@ -7,6 +7,7 @@ use \Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends BaseController
 {
@@ -87,11 +88,32 @@ class AdminController extends BaseController
                 ->withInput()
                 ->withErrors($validator);
         } else {
+            if ($res->file('image') != null)
+            {
+                $file = $res->file('image');
+                $file->store('toPath', ['disk' => 'my_files']);
+            }
+            
+            //$file->store('toPath', ['disk' => 'my_files']);
+
+            //$name = $file->getClientOriginalName();
+
+            $idInfor = DB::table('information')
+                        ->insertGetId([
+                            'CPU' => $data['cpu'],
+                            'RAM' => $data['ram'],
+                            'ROM' => $data['rom'],
+                            'GPU' => $data['gpu'],
+                            'SCREEN' => $data['screen'],
+                            'Operating_system' => $data['operating_system'],
+                            'WEIGHT' => $data['weight'],
+                        ]);
             DB::table('products')->insert([
                 'products_name' => $data['name'],
                 'quantity' => $data['quantity'],
                 'price' => $data['price'],
                 'category' => $data['catId'],
+                'id_infomation' => $idInfor,
             ]);
             // $lastItem = DB::table('Products')->latest()->first();
             // $id_Product = $lastItem->id_product;
@@ -112,11 +134,11 @@ class AdminController extends BaseController
             //     ->where('id_product', $id_Product)
             //     ->update(['avatar' => $images->image]);
             $msg = "Thêm sản phẩm thành công";
-             if (count($res->file('images')) >= 3) {
+            //  if (count($res->file('images')) >= 3) {
                 
-            } else {
-                 $msg = "Thêm sản phẩm thất bại, số lượng ảnh tối thiểu phải là 3";
-             }
+            // } else {
+            //      $msg = "Thêm sản phẩm thất bại, số lượng ảnh tối thiểu phải là 3";
+            //  }
             $categories = DB::table('categories')->get();
             return view('admin.mainLayout', [
                 'categories' => $categories

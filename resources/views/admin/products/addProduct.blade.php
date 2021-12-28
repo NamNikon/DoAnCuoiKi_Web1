@@ -4,11 +4,11 @@
             <div class="row">
  <!-- DATA TABLE -->
  <h3 class="title-5 m-b-35 mr-5 mt-1">ADD NEW PRODUCT</h3>
- @if (@isset($msg))
- <h3 class="title-5 m-b-35 mr-5 mt-1">{{ $msg }}</h3>
+ @if (@isset($path))
+ <h3 class="title-5 m-b-35 mr-5 mt-1">{{ $path }}</h3>
  @endif
  <div class="table-responsive table-responsive-data2">
-    <form action="/admin/product-add-new" method="post" novalidate="novalidate">
+    <form action="/admin/product-add-new" method="post" novalidate="novalidate" enctype="multipart/form-data">
     {{ csrf_field() }}
         <div class="form-group">
             <label for="name" class="control-label mb-1">Product Name</label>
@@ -106,12 +106,8 @@
             <div class="row">
                 <div class="col-4">
                     <label for="file-input" class="form-control-label">Main Image</label> {{-- CHỌN 1 ẢNH --}}
-                    <input type="file" id="file-input" name="file-input" class="form-control-file">
+                    <input type="file" id="image" name="image" accept="image/gif, image/jpeg" class="form-control-file" multiple>
                 </div>
-               <div class="col-8">
-                    <label for="file-input" class="form-control-label">Image Details</label> {{-- CHỌN NHIỀU ẢNH --}}               
-                    <input type="file" id="file-input" name="file-input" class="form-control-file">
-               </div>
             </div>
         </div>
 
