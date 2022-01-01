@@ -78,27 +78,33 @@ class AdminController extends BaseController
             // Sản phẩm
             'quantity.required' => 'Số lượng sản phẩm không được để trống',
             // Hình ảnh
-            //'images.required' => 'Hình ảnh sản phẩm không được để trống',
-            //'images.min' => 'Hình ảnh tối thiểu phải là 3',
+            // 'images.required' => 'Hình ảnh sản phẩm không được để trống',
+            // 'images.min' => 'Hình ảnh tối thiểu phải là 3',
         ];
-        $msg = '';
+        $msg = 'test';
         $validator = Validator::make($res->all(), $rule, $customMessage);
         if ($validator->fails()) {
             return redirect('admin/product-add-new')
                 ->withInput()
                 ->withErrors($validator);
         } else {
-            if ($res->file('image') != null)
+            if (count($res->file('images')) >= 3)
             {
-                $file = $res->file('image');
-                $file->store('toPath', ['disk' => 'my_files']);
-            }
-            
-            //$file->store('toPath', ['disk' => 'my_files']);
+                $lastItem = DB::table('images')
+                            ->orderBy('id', 'desc')
+                            ->first();
+                $idImage = $lastItem->id + 1;
 
-            //$name = $file->getClientOriginalName();
+                foreach ($res->file('images') as $img) {
 
-            $idInfor = DB::table('information')
+                    $path = $img->store($idImage, ['disk' => 'my_files']);
+
+                    DB::table('images')->insert([
+                        'path' => $path,
+                    ]);
+                }
+
+                $idInfor = DB::table('information')
                         ->insertGetId([
                             'CPU' => $data['cpu'],
                             'RAM' => $data['ram'],
@@ -108,37 +114,18 @@ class AdminController extends BaseController
                             'Operating_system' => $data['operating_system'],
                             'WEIGHT' => $data['weight'],
                         ]);
-            DB::table('products')->insert([
-                'products_name' => $data['name'],
-                'quantity' => $data['quantity'],
-                'price' => $data['price'],
-                'category' => $data['catId'],
-                'id_infomation' => $idInfor,
-            ]);
-            // $lastItem = DB::table('Products')->latest()->first();
-            // $id_Product = $lastItem->id_product;
-            // foreach ($res->file('images') as $img) {
-            //     // Cấp quyền lưu file
-            //     Cloudder::upload($img->getRealPath(),"" ,array("width"=>200, "height"=>200));
+                DB::table('products')->insert([
+                    'products_name' => $data['name'],
+                    'quantity' => $data['quantity'],
+                    'price' => $data['price'],
+                    'category' => $data['catId'],
+                    'id_infomation' => $idInfor,
+                ]);
+                $msg = "Thêm sản phẩm thành công";
+            } else {
+                $msg = "Thêm sản phẩm thất bại, số lượng ảnh tối thiểu phải là 3";
+            }
 
-
-            //     $name = Cloudder::getResult();
-            //     DB::table('Image')->insert([
-            //         'id_product' => $id_Product,
-            //         'image' => $name['url'],
-            //     ]);
-            // }
-            // // Cập nhật avatar mặc định cho sản phẩm
-            // $images = DB::table('Image')->where('id_product', '=', $id_Product)->get()->first();
-            // DB::table('Products')
-            //     ->where('id_product', $id_Product)
-            //     ->update(['avatar' => $images->image]);
-            $msg = "Thêm sản phẩm thành công";
-            //  if (count($res->file('images')) >= 3) {
-                
-            // } else {
-            //      $msg = "Thêm sản phẩm thất bại, số lượng ảnh tối thiểu phải là 3";
-            //  }
             $categories = DB::table('categories')->get();
             return view('admin.mainLayout', [
                 'categories' => $categories
