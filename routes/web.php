@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PagesController@Index');
-
+Route::get('/404', function () {
+    return view('errors.404');
+})->name('404');
 Route::get('/admin/dashboard', function () {
     return view('admin/mainLayout');
 });
@@ -43,10 +45,10 @@ Route::get('/product/details', function () {
     return view('users/products/productDetails');
 });
 
-Route::get('/product/add-to-cart/{productId}','CartController@AddItem')->name('cart.add');
-Route::get('/product/remove-to-cart/{productId}','CartController@DeleteItem')->name('cart.remove');
-Route::get('/payment/checkout', 'CartController@CartDetail')->name('cart.list');
-Route::post('/payment/checkout','CartController@ProcessCheckout')->name('process.checkout');
+Route::get('/product/add-to-cart/{productId}', 'CartController@AddItem')->name('cart.add');
+Route::get('/product/remove-to-cart/{productId}', 'CartController@DeleteItem')->name('cart.remove');
+Route::get('/payment/checkout', 'CartController@CartDetail')->middleware('role')->name('cart.list');
+Route::post('/payment/checkout', 'CartController@ProcessCheckout')->name('process.checkout');
 
 Route::get('/account', function () {
     return view('users/account/account');
@@ -56,13 +58,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/test', function (){
-    phpinfo();
-});
-
-
-
-
-Route::get('admin/purchages', function() {
+Route::get('admin/purchages', function () {
     return view('/admin/mainLayout');
 });
