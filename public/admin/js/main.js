@@ -1702,4 +1702,35 @@
     $('#catId').val(catId);
   })
 
+  $('#selectedMethod').on('change', function() {
+    //get value selected
+    var value = Number($(this).val());
+
+    $('#stt_date1').hide();
+    $('#stt_date2').hide();
+    $('#stt_month').hide();
+    $('#stt_year').hide();
+
+    switch(value) {
+      case 0:
+        $('#stt_date1').show();
+      break;
+      case 1:
+        $('#stt_month').show();
+      break;
+      case 2:
+        $('#stt_year').show();
+      break;
+      case 3:
+        $('#stt_date1').show();
+        $('#stt_date2').show();
+      break;
+    }
+    
+  })
+
+
+
+
+
 })(jQuery);

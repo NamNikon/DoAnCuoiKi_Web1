@@ -58,6 +58,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+// ADMIN PURCHAGES
 Route::get('admin/purchages', function () {
+    return view('/admin/mainLayout');
+});
+
+// ADMIN STATISTICS
+Route::get('admin/statistics', function () {
     return view('/admin/mainLayout');
 });

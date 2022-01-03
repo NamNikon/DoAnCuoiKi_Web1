@@ -66,7 +66,8 @@
                         </li>
                         <li class="{{ Request::is('admin/user-manage') ? 'active' : ''}}">
                             <a href="/admin/user-manage">
-                                <i class="fas fa-user"></i>Users</a>
+                                <i class="fas fa-user"></i>Users
+                            </a>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
@@ -86,14 +87,14 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="">
-                            <a class="" href="/admin/purchanges">
+                        <li class="{{ Request::is('admin/purchages') ? 'active' : ''}}">
+                            <a class="" href="/admin/purchages">
                                 <i class="fas fa-shopping-cart"></i>Purchage
                             </a>
                            
                         </li>
-                        <li class="">
-                            <a href="#">
+                        <li class="{{ Request::is('admin/statistics') ? 'active' : ''}}">
+                            <a href="/admin/statistics">
                                 <i class="fas fa-bar-chart-o"></i>Statistic
                             </a>
                         </li>
@@ -340,7 +341,26 @@
                                             <li class="list-inline-item seprate">
                                                 <span>/</span>
                                             </li>
-                                            <li class="list-inline-item">User</li>
+                                            @if (Request::is('admin/dashboard'))
+                                                <li class="list-inline-item">Dashoard</li>
+                                            @endif
+                                            @if (Request::is('admin/user-manage'))
+                                                <li class="list-inline-item">User</li>
+                                            @endif
+                                            @if (Request::is('admin/product-list'))
+                                                <li class="list-inline-item">Product</li>
+                                            @endif
+                                            @if (Request::is('admin/product-add-new'))
+                                                <li class="list-inline-item">Product  /  Add New</li>
+                                            @endif
+
+                                            @if (Request::is('admin/purchages'))
+                                                <li class="list-inline-item">Purchage</li>
+                                            @endif
+
+                                            @if (Request::is('admin/statistics'))
+                                                <li class="list-inline-item">Statistics</li>
+                                            @endif
                                         </ul>
                                     </div>
                                     
@@ -377,6 +397,12 @@
             @if (Request::is('admin/purchages'))
                 @include('admin.purchages.listPurchages')
             @endif
+
+            {{-- STATISTICS PAGE --}}
+            @if (Request::is('admin/statistics'))
+                @include('admin.statistics.statisticsLayout')
+            @endif
+
 
 
             <section>

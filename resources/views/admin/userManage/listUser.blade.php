@@ -4,20 +4,21 @@
             <div class="row">
  <!-- DATA TABLE -->
  <h3 class="title-5 m-b-35 mr-5 mt-1">USER MANAGE</h3>
- <div class="table-data__tool">
-     <div class="table-data__tool-left">
-         <div class="rs-select2--light rs-select2--md">
-             <select class="js-select2" name="property">
+<div class="table-data__tool">
+    <div class="table-data__tool-left">
+        <div class="rs-select2--light rs-select2--md">
+            <select class="js-select2" name="property">
                  <option value="0" selected="selected">All Role</option>
                  @foreach ($roles as $key)
                  <option value="">{{ $key->role_name }}</option>
                  @endforeach
-             </select>
-             <div class="dropDownSelect2"></div>
-         </div>
-     </div>
+            </select>
+            <div class="dropDownSelect2"></div>
+        </div>
+    </div>
+</div>
     
- </div>
+
  <div class="table-responsive table-responsive-data2">
      <table class="table table-data2">
          <thead>
