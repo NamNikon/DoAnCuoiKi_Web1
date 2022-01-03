@@ -9,7 +9,9 @@ class PagesController extends BaseController
 {
     public function Index()
     {
-        $categories = DB::table('categories')->get();
+        $categories = DB::table('categories')
+                            ->join('images', 'images.id', '=', 'categories.logo_image')
+                            ->get();
         $orderDetail = DB::table('order_details')
                             ->select('product_id', DB::raw('SUM(quantity) as total'))
                             ->groupBy('product_id')

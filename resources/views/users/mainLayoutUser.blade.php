@@ -75,7 +75,7 @@
                         <a href="#" class="cat-block">
                             <figure>
                                 <span>
-                                    <img src="{{ asset('users/assets/images/demos/demo-4/cats/1.png') }}" alt="Category image">
+                                    <img src="{{ asset('images/' . $cat->path) }}" alt="Category image">
                                 </span>
                             </figure>
 
@@ -144,28 +144,7 @@
                     <h2 class="title">New Arrivals</h2><!-- End .title -->
                 </div><!-- End .heading-left -->
 
-                <div class="heading-right">
-                    <ul class="nav nav-pills nav-border-anim justify-content-center" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="new-all-link" data-toggle="tab" href="#new-all-tab" role="tab" aria-controls="new-all-tab" aria-selected="true">All</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="new-tv-link" data-toggle="tab" href="#new-tv-tab" role="tab" aria-controls="new-tv-tab" aria-selected="false">TV</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="new-computers-link" data-toggle="tab" href="#new-computers-tab" role="tab" aria-controls="new-computers-tab" aria-selected="false">Computers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="new-phones-link" data-toggle="tab" href="#new-phones-tab" role="tab" aria-controls="new-phones-tab" aria-selected="false">Tablets & Cell Phones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="new-watches-link" data-toggle="tab" href="#new-watches-tab" role="tab" aria-controls="new-watches-tab" aria-selected="false">Smartwatches</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="new-acc-link" data-toggle="tab" href="#new-acc-tab" role="tab" aria-controls="new-acc-tab" aria-selected="false">Accessories</a>
-                        </li>
-                    </ul>
-                </div><!-- End .heading-right -->
+              
             </div><!-- End .heading -->
 
             <div class="tab-content tab-content-carousel just-action-icons-sm">
@@ -200,7 +179,7 @@
                             <figure class="product-media">
                                 <span class="product-label label-circle label-top">Top</span>
                                 <a href="product/details">
-                                    <img src="{{ asset('users/assets/images/demos/demo-4/products/product-1.jpg') }}" alt="Product image" class="product-image">
+                                    <img src="{{ asset('images/' . $product->path)}}" alt="Product image" class="product-image">
                                 </a>
 
                                 <div class="product-action-vertical">
@@ -1337,7 +1316,7 @@
                                         <figure class="product-media">
                                             <span class="product-label label-circle label-top">Top</span>
                                             <a href="product/details">
-                                                <img src="{{ asset('users/assets/images/demos/demo-4/products/product-6.jpg') }}" alt="Product image" class="product-image">
+                                                <img src="{{ asset('images/' . $product->path) }}" alt="Product image" class="product-image">
                                             </a>
 
                                             <div class="product-action-vertical">
