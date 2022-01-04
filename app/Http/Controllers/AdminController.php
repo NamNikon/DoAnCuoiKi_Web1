@@ -72,9 +72,6 @@ class AdminController extends BaseController
             'name.required' => 'Tên sản phẩm không được để trống',
             // Giá
             'price.required' => 'Giá sản phẩm không được để trống',
-
-            // Chi tiết
-            //'about.required' => 'Chi tiết sản phẩm không được để trống',
             // Sản phẩm
             'quantity.required' => 'Số lượng sản phẩm không được để trống',
             // Hình ảnh
@@ -131,5 +128,21 @@ class AdminController extends BaseController
                 'categories' => $categories
             ])->with('msg', "$msg");
         }
+    }
+
+    public function getPurchages()
+    {
+        $purchages = DB::table('orders')
+                        ->join('order_status', 'order_status.id', '=', 'orders.status_id')
+                        ->join('users', 'users.id', '=', 'orders.user_id')
+                        ->select('orders.*', 'users.name')
+                        ->get();
+        
+        $listStatus = DB::table('order_status')->get();
+
+        return view('admin.mainLayout', [
+                'purchages' => $purchages,
+                'listStatus' => $listStatus,
+        ]);
     }
 }

@@ -17,26 +17,41 @@
              </tr>
          </thead>
          <tbody>
-          <tr>
+        @if (@isset($purchages))
+        @foreach ($purchages as $purchage)
+        <tr>
               <td>
-                  3432
+                  {{ $purchage->id }}
               </td>
               <td>
-                  761291283 VND
+                {{ $purchage->total }} VND
               </td>
               <td>
-                  39/8 Nhất Chi Mai, Tân Bình
+                  {{ $purchage->address }}
               </td>
               <td>
-                  Nguyễn Trung Nam
+                  {{ $purchage->name }}
               </td>
               <td>
-                <select name="select" id="select_role" class="my-select form-control">
-                    <option value="1">Pending...</option>
-                    <option value="2">Shipping...</option>
-                </select>
+                {{ csrf_field() }}
+                    @if (@isset($listStatus))
+                    <select name="select" id="select_role" class="my-select form-control">
+                        @foreach ($listStatus as $item)
+                        @if ($item->id ==  $purchage->status_id )
+                            <option value="{{ $purchage->status_id }}"
+                            selected="selected"
+                            >
+                        @else 
+                        <option value="{{ $item->id}}">
+                        @endif
+                    {{ $item->status }}</option>
+                        @endforeach
+                    </select>
+                    @endif
               </td>
           </tr>
+        @endforeach
+        @endif
          </tbody>
      </table>
     
