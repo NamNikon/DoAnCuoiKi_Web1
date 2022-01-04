@@ -19,7 +19,7 @@
          <tbody>
         @if (@isset($purchages))
         @foreach ($purchages as $purchage)
-        <tr>
+        <tr id="{{ $purchage->id }}">
               <td>
                   {{ $purchage->id }}
               </td>
@@ -35,7 +35,7 @@
               <td>
                 {{ csrf_field() }}
                     @if (@isset($listStatus))
-                    <select name="select" id="select_role" class="my-select form-control">
+                    <select name="select" id="select_status" class="my-select form-control">
                         @foreach ($listStatus as $item)
                         @if ($item->id ==  $purchage->status_id )
                             <option value="{{ $purchage->status_id }}"
@@ -54,7 +54,7 @@
         @endif
          </tbody>
      </table>
-    
+     {{ $purchages->render('admin/common/paging') }}
  </div>
 
 
