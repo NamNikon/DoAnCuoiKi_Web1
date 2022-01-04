@@ -178,7 +178,7 @@
                         <div class="product product-2">
                             <figure class="product-media">
                                 <span class="product-label label-circle label-top">Top</span>
-                                <a href="product/details">
+                                <a href="product/details/{{ $product->id }}">
                                     <img src="{{ asset('images/' . $product->path)}}" alt="Product image" class="product-image">
                                 </a>
 
@@ -196,7 +196,7 @@
                                 <div class="product-cat">
                                     <a href="#">Laptops</a>
                                 </div><!-- End .product-cat -->
-                                <h3 class="product-title"><a href="product/details">{{ $product->products_name}}</a></h3><!-- End .product-title -->
+                                <h3 class="product-title"><a href="product/details/{{ $product->id}}">{{ $product->products_name}}</a></h3><!-- End .product-title -->
                                 <div class="product-price">
                                     {{ $product->price }}
                                 </div><!-- End .product-price -->

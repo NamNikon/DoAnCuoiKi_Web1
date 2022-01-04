@@ -34,4 +34,27 @@ class PagesController extends BaseController
             'topSaleProducts' => $topSaleProducts
         ]);
     }
+
+    public function DetailsProduct($pid) {
+        $product = DB::table('products')
+                            ->where('products.id', $pid)
+                            ->take(1)
+                            ->get();
+
+        $images_product = DB::table('image_details_product') 
+                        ->join('images', 'images.id', '=', 'image_details_product.id_image')
+                        ->where('image_details_product.id_product',  $pid)
+                        ->get();
+
+        $information = DB::table('information')
+                    ->join('products', 'products.id_infomation', '=', 'information.id')
+                    ->where('products.id',  $pid)
+                    ->get();
+
+        return view('users.products.productDetails', [
+            'product' => $product,
+            'images_product' => $images_product,
+            'information' =>  $information
+        ]);
+    }
 }
