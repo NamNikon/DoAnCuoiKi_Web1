@@ -41,9 +41,7 @@ Route::get('/search', function () {
     return view('users/search/searchPage');
 });
 
-Route::get('/product/details', function () {
-    return view('users/products/productDetails');
-});
+Route::get('/product/details/{pid}', 'PagesController@DetailsProduct');
 
 Route::get('/product/add-to-cart/{productId}', 'CartController@AddItem')->name('cart.add');
 Route::get('/product/remove-to-cart/{productId}', 'CartController@DeleteItem')->name('cart.remove');
