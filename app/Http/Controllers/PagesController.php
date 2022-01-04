@@ -59,4 +59,16 @@ class PagesController extends BaseController
             'information' =>  $information
         ]);
     }
+
+    public function SearchProduct() {
+        $key = request()->get('prd');
+         
+        $products = DB::table('products')
+                    ->where('products.products_name', 'like', '%'. $key.'%')
+                    ->join('images', 'images.id', '=', 'products.id_image')
+                    ->select('products.*', 'images.path')
+                    ->get();
+
+        return view('users.search.searchPage', [ 'products'=>$products]);
+    }
 }

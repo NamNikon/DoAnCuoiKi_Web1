@@ -37,9 +37,7 @@ Route::get('/admin/login', function () {
 
 Route::get('/user', 'PagesController@Index');
 
-Route::get('/search', function () {
-    return view('users/search/searchPage');
-});
+Route::get('/search', 'PagesController@SearchProduct');
 
 Route::get('/product/details/{pid}', 'PagesController@DetailsProduct');
 
