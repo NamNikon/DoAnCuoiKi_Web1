@@ -22,10 +22,12 @@ class PagesController extends BaseController
                                 $join->on('products.id', '=', 'order_detail.product_id');
                             })
                             ->join('images', 'images.id', '=', 'products.id_image')
+                            ->select('products.*', 'images.path')
                             ->get();
         $topNewProducts = DB::table('products')
                             ->orderBy('create_at', 'desc')
                             ->join('images', 'images.id', '=', 'products.id_image')
+                            ->select('products.*', 'images.path')
                             ->take(10)
                             ->get();
         return view('users.mainLayoutUser', [
