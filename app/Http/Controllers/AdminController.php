@@ -136,7 +136,7 @@ class AdminController extends BaseController
                         ->join('order_status', 'order_status.id', '=', 'orders.status_id')
                         ->join('users', 'users.id', '=', 'orders.user_id')
                         ->select('orders.*', 'users.name')
-                        ->get();
+                        ->paginate($this->limit);
         
         $listStatus = DB::table('order_status')->get();
 
@@ -144,5 +144,13 @@ class AdminController extends BaseController
                 'purchages' => $purchages,
                 'listStatus' => $listStatus,
         ]);
+    }
+
+    public function changeStatus(Request $res)
+    {
+        $data = $res->input();
+        DB::table('orders')
+            ->where('id', '=', $data['id'])
+            ->update(['status_id' => $data['value']]);
     }
 }

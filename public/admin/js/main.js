@@ -1674,7 +1674,8 @@
   $('#select_role').on('change', function() {
     var id = $(this).closest('tr').attr('id');
     var value = $(this).val();
-    console.log(id, value);
+    console.log(id);
+    console.log(value);
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1727,6 +1728,33 @@
       break;
     }
     
+  })
+
+  // changeStatus
+  $('#select_status').on('change', function() {
+    var id = $(this).closest('tr').attr('id');
+    var value = $(this).val();
+    console.log(id);
+    console.log(value);
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        type: "POST",
+        url: "/admin/changeStatus",
+        data: {
+            id: id,
+            value: value
+        },
+        success: function (data) {
+          console.log(data);
+       },
+       error: function (data, textStatus, errorThrown) {
+           console.log(data);
+       },
+    });
   })
 
 

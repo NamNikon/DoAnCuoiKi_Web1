@@ -68,7 +68,7 @@
             @endif
          </tbody>
      </table>
-     {{ $users->links() }}
+     {{ $users->render('admin/common/paging') }}
  </div>
  <!-- END DATA TABLE -->
             </div>

@@ -19,17 +19,19 @@ Route::get('/404', function () {
 })->name('404');
 Route::get('/admin/dashboard', function () {
     return view('admin/mainLayout');
-})->middleware('role');
+});
 
-Route::get('/admin/user-manage', 'AdminController@viewUsers')->middleware('role');
+Route::get('/admin/user-manage', 'AdminController@viewUsers');
 
-Route::get('/admin/delete/user/{id}', 'AdminController@removeUser')->middleware('role');
+Route::post('/admin/changeRole', 'AdminController@changeRole');
 
-Route::get('/admin/product-list', 'AdminController@viewProducts')->middleware('role');
+Route::get('/admin/delete/user/{id}', 'AdminController@removeUser');
 
-Route::get('/admin/product-add-new', 'AdminController@getCategories')->middleware('role');
+Route::get('/admin/product-list', 'AdminController@viewProducts');
 
-Route::post('/admin/product-add-new', 'AdminController@addProduct')->middleware('role');
+Route::get('/admin/product-add-new', 'AdminController@getCategories');
+
+Route::post('/admin/product-add-new', 'AdminController@addProduct');
 
 Route::get('/admin/login', function () {
     return view('admin/auth/login');
@@ -56,7 +58,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 // ADMIN PURCHAGES
 Route::get('admin/purchages','AdminController@getPurchages');
-
+Route::post('/admin/changeStatus', 'AdminController@changeStatus');
 // ADMIN STATISTICS
 Route::get('admin/statistics', function () {
     return view('/admin/mainLayout');
