@@ -50,7 +50,11 @@
                             <li>
                                 <a href="#">Links</a>
                                 <ul>
-                                    <li><a href="#signin-modal" data-toggle="modal">Sign in / Sign up</a></li>
+                                    <li>
+                                        <a href="{{ auth()->user() ? '/logout' :  '/login'}}" >
+                                            {{ auth()->user() ? 'Sign Out' :  'Sign In'}}
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul><!-- End .top-menu -->
@@ -136,8 +140,12 @@
                                 <nav class="side-nav">
                                     <ul class="menu-vertical sf-arrows">
                                         <li><a href="/account">Information</a></li>
-                                        <li><a href="#">Purchage Manage</a></li>
-                                        <li><a href="#">Logout</a></li>
+                                        <li><a href="#">Liked Products</a></li>
+                                        @if(auth()->user())   
+                                        @if(auth()->user()->role = 1)   
+                                            <li><a href="admin/dashboard">GO TO ADMIN</a></li>
+                                        @endif
+                                        @endif
                                     </ul><!-- End .menu-vertical -->
                                 </nav><!-- End .side-nav -->
                             </div><!-- End .dropdown-menu -->

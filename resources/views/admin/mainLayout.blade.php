@@ -54,7 +54,7 @@
                     <div class="image img-cir img-120">
                         <img src="{{asset('admin/images/icon/avatar-big-01.jpg')}}" alt="John Doe" />
                     </div>
-                    <h4 class="name">PHU CUONG</h4>
+                    <h4 class="name">{{auth()->user()->name}}</h4>
                     <a href="#">Logout</a>
                 </div>
                 <nav class="navbar-sidebar2">
