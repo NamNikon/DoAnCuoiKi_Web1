@@ -1730,6 +1730,52 @@
     
   })
 
+  //statistic
+  $('#statistic').click(function(){
+    var url;
+    var value;
+    var select = Number($('#selectedMethod').val());
+
+    switch(select) {
+      case 0:
+        url = "/admin/statistic/day"
+        value = $('#stt_date1').val();
+        break;
+      case 1:
+        url = "/admin/statistic/month"
+        value = $('#stt_month').val();
+        break;
+      case 2:
+        url = "/admin/statistic/year"
+        value = $('#stt_year').val();
+        break;
+      case 3:
+        $('#stt_date1').show();
+        $('#stt_date2').show();
+      break;
+    }
+
+    $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+  });
+  $.ajax({
+      type: "POST",
+      url: url,
+      data: {
+          value: value,
+      },
+      success: function (data) {
+        console.log(data);
+     },
+     error: function (data, textStatus, errorThrown) {
+         console.log(data);
+     },
+  });
+
+  });
+
   // changeStatus
   $('#select_status').on('change', function() {
     var id = $(this).closest('tr').attr('id');

@@ -63,3 +63,7 @@ Route::post('/admin/changeStatus', 'AdminController@changeStatus');
 Route::get('admin/statistics', function () {
     return view('/admin/mainLayout');
 });
+
+Route::post('/admin/statistic/day', 'AdminController@statisticDay');
+Route::post('/admin/statistic/month', 'AdminController@statisticMonth');
+Route::post('/admin/statistic/year', 'AdminController@statisticYear');

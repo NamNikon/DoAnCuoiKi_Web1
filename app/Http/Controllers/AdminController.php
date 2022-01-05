@@ -153,4 +153,37 @@ class AdminController extends BaseController
             ->where('id', '=', $data['id'])
             ->update(['status_id' => $data['value']]);
     }
+
+    public function statisticDay(Request $res)
+    {
+        $day = $res->input('day');
+        $statistics = DB::table('orders')
+                        ->whereDate('orders.create_at', $day)
+                        ->get();
+
+        return response()->json(['statistics' => $statistics],200);
+    }
+
+    public function statisticMonth(Request $res)
+    {
+        $month = $res->input('value');
+        $year = date("Y");
+        $statistics = DB::table('orders')
+                        ->whereMonth('orders.create_at', $month)
+                        ->whereYear('orders.create_at', $year)
+                        ->get();
+
+        return response()->json(['statistics' => $statistics],200);
+    }
+
+    public function statisticYear(Request $res)
+    {
+        $year = $res->input('value');
+        $statistics = DB::table('orders')
+                        ->whereYear('orders.create_at', $year)
+                        ->get();
+
+        return response()->json(['statistics' => $statistics],200);
+    }
+
 }
