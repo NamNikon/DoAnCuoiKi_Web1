@@ -139,12 +139,13 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="header-button-item has-noti js-item-menu">
+                                
+                                <div class="header-button-item has-noti">
                                     <a href="/user">
-                                         <i class="zmdi zmdi-home" style="color: white"></i>
+                                         <i class="zmdi zmdi-home" style="color: white"></i>                                  
                                     </a>
-                                   
                                 </div>
+                           
                                 <div class="header-button-item mr-0 js-sidebar-btn">
                                     <i class="zmdi zmdi-menu"></i>
                                 </div>

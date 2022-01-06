@@ -34,6 +34,7 @@
                             </thead>
 
                             <tbody>
+
                             @foreach($cartList as $item)
                                 <tr>
                                     <td class="product-col">
@@ -60,7 +61,12 @@
                             @endforeach
                             </tbody>
                         </table><!-- End .table table-wishlist -->
-
+                        @if(Session::has('success'))
+                            <h3 class="summary-title">{{Session::get('success')}}</h3><!-- End .summary-title -->
+                        @endif
+                        @if(Session::has('failure'))
+                            <h3 class="summary-title">{{Session::get('failure')}}</h3><!-- End .summary-title -->
+                        @endif
                         <div class="cart-bottom">
                             <div class="cart-discount">
                                 <form action="#">

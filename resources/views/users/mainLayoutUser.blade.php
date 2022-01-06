@@ -1758,10 +1758,12 @@
 
             <div class="products">
                 <div class="row justify-content-center">
+                    @if (@isset($topLikeProducts))
+                    @foreach ($topLikeProducts as $item)
                     <div class="col-6 col-md-4 col-lg-3">
-                        @if (@isset($topLikeProducts))
-                            @foreach ($topLikeProducts as $item)
-                        <div class="product product-2">
+                      
+                        <div class="product product-7">
+                           
                             <figure class="product-media">
                                 <span class="product-label label-circle label-sale">Sale</span>
                                 <a href="product/details/{{$item->id}}">
@@ -1793,20 +1795,13 @@
                                     </div><!-- End .ratings -->
                                     <span class="ratings-text">( 4 Reviews )</span>
                                 </div><!-- End .rating-container -->
-
-                                <div class="product-nav product-nav-dots">
-                                    <a href="#" class="active" style="background: #666666;"><span class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #ff887f;"><span class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #6699cc;"><span class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #f3dbc1;"><span class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #eaeaec;"><span class="sr-only">Color name</span></a>
-                                </div><!-- End .product-nav -->
                             </div><!-- End .product-body -->
+                            
                         </div><!-- End .product -->
-                            @endforeach
-                        @endif
+                          
                     </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
+                    @endforeach
+                    @endif
 
 
                 </div><!-- End .row -->
