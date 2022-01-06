@@ -40,8 +40,9 @@
                                         <div class="product">
                                             <figure class="product-media">
                                                 <a href="#">
-                                                    <img src="{{ asset('images/' . $item->path) }}"
-                                                         alt="Product image">
+                                                    <img
+                                                        src="{{ asset('images/' . $item->attributes->image) }}"
+                                                        alt="Product image">
                                                 </a>
                                             </figure>
 

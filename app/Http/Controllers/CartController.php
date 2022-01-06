@@ -58,6 +58,13 @@ class CartController extends Controller
     {
         //Get user current
         $user = auth()->user();
+
+        $userVerify = DB::table('users')
+            ->where('id','=',$user->id)
+            ->first();
+        if($userVerify->email_verified_at==null){
+            return redirect()->route('activeRequired');
+        }
         //Get data input
         $data = $request->input();
         //Get product in cart

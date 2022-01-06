@@ -20,7 +20,7 @@ Route::get('/404', function () {
 
 Route::get('/active', function () {
     return view('auth.activeRequired');
-})->name('active');
+})->name('activeRequired');
 
 Route::get('/admin/dashboard', function () {
     return view('admin/mainLayout');
@@ -50,7 +50,7 @@ Route::get('/product/details/{pid}', 'PagesController@DetailsProduct');
 
 Route::get('/product/add-to-cart/{productId}', 'CartController@AddItem')->name('cart.add');
 Route::get('/product/remove-to-cart/{productId}', 'CartController@DeleteItem')->name('cart.remove');
-Route::get('/payment/checkout', 'CartController@CartDetail')->middleware('role')->name('cart.list');
+Route::get('/payment/checkout', 'CartController@CartDetail')->name('cart.list');
 Route::post('/payment/checkout', 'CartController@ProcessCheckout')->name('process.checkout');
 
 Route::get('/account', function () {
