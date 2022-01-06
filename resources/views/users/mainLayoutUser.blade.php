@@ -72,7 +72,7 @@
                     @if (@isset($categories))
                     @foreach ($categories as $cat)
                     <div class="col-6 col-sm-4 col-lg-2">
-                        <a href="#" class="cat-block">
+                        <a href="/search?prd={{$cat->name}}" class="cat-block">
                             <figure>
                                 <span>
                                     <img src="{{ asset('images/' . $cat->path) }}" alt="Category image">

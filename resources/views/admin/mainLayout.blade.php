@@ -54,8 +54,18 @@
                     <div class="image img-cir img-120">
                         <img src="{{asset('admin/images/icon/avatar-big-01.jpg')}}" alt="John Doe" />
                     </div>
-                    <h4 class="name">{{auth()->user()->name}}</h4>
-                    <a href="#">Logout</a>
+                    @if (auth()->id())
+                        <h4 class="name">{{auth()->user()->name}}</h4>
+
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            this.closest('form').submit(); " role="button">
+                                    {{ __('Log Out') }}
+                                </a>
+                        </form>
+                    @endif
+                    
                 </div>
                 <nav class="navbar-sidebar2">
                     <ul class="list-unstyled navbar__list">
@@ -130,42 +140,10 @@
                                     </div>
                                 </div>
                                 <div class="header-button-item has-noti js-item-menu">
-                                    <i class="zmdi zmdi-notifications"></i>
-                                    <div class="notifi-dropdown js-dropdown">
-                                        <div class="notifi__title">
-                                            <p>You have 3 Notifications</p>
-                                        </div>
-                                        <div class="notifi__item">
-                                            <div class="bg-c1 img-cir img-40">
-                                                <i class="zmdi zmdi-email-open"></i>
-                                            </div>
-                                            <div class="content">
-                                                <p>You got a email notification</p>
-                                                <span class="date">April 12, 2018 06:50</span>
-                                            </div>
-                                        </div>
-                                        <div class="notifi__item">
-                                            <div class="bg-c2 img-cir img-40">
-                                                <i class="zmdi zmdi-account-box"></i>
-                                            </div>
-                                            <div class="content">
-                                                <p>Your account has been blocked</p>
-                                                <span class="date">April 12, 2018 06:50</span>
-                                            </div>
-                                        </div>
-                                        <div class="notifi__item">
-                                            <div class="bg-c3 img-cir img-40">
-                                                <i class="zmdi zmdi-file-text"></i>
-                                            </div>
-                                            <div class="content">
-                                                <p>You got a new file</p>
-                                                <span class="date">April 12, 2018 06:50</span>
-                                            </div>
-                                        </div>
-                                        <div class="notifi__footer">
-                                            <a href="#">All notifications</a>
-                                        </div>
-                                    </div>
+                                    <a href="/user">
+                                         <i class="zmdi zmdi-home" style="color: white"></i>
+                                    </a>
+                                   
                                 </div>
                                 <div class="header-button-item mr-0 js-sidebar-btn">
                                     <i class="zmdi zmdi-menu"></i>
