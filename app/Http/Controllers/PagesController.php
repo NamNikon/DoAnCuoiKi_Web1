@@ -25,7 +25,7 @@ class PagesController extends BaseController
                             ->select('products.*', 'images.path')
                             ->get();
         $topNewProducts = DB::table('products')
-                            ->orderBy('create_at', 'desc')
+                            ->orderBy('id', 'desc')
                             ->join('images', 'images.id', '=', 'products.id_image')
                             ->select('products.*', 'images.path')
                             ->take(10)
@@ -43,7 +43,7 @@ class PagesController extends BaseController
                             ->take(1)
                             ->get();
 
-        $images_product = DB::table('image_details_product') 
+        $images_product = DB::table('image_details_product')
                         ->join('images', 'images.id', '=', 'image_details_product.id_image')
                         ->where('image_details_product.id_product',  $pid)
                         ->get();
@@ -62,7 +62,7 @@ class PagesController extends BaseController
 
     public function SearchProduct() {
         $key = request()->get('prd');
-         
+
         $products = DB::table('products')
                     ->where('products.products_name', 'like', '%'. $key.'%')
                     ->join('images', 'images.id', '=', 'products.id_image')
