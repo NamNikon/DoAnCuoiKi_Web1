@@ -46,11 +46,9 @@
                             <h1 class="product-title">{{ $product[0]->products_name }}</h1><!-- End .product-title -->
 
                             <div class="ratings-container">
-                                <div class="ratings">
-                                    <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                                </div><!-- End .ratings -->
+                              
                                 <a class="ratings-text" href="#product-review-link"
-                                   id="review-link">( {{ $product[0]->liked }} Reviews )</a>
+                                   id="review-link">{{ $product[0]->liked }} Liked</a>
                             </div><!-- End .rating-container -->
 
                             <div class="product-price">
@@ -113,24 +111,25 @@
                          aria-labelledby="product-review-link">
                         <div class="reviews">
                             @auth
-                            <form action="{{ route('comment.product', ['pid'=>$product[0]->id]) }}" method="post">
+                            <form action="{{ route('comment.product', ['pid'=>$product[0]->id]) }}" method="post"
+                                style="margin-bottom: 20px;">
                                 @csrf
                                 <input type="text" class="form-control" name="comment" id="cmt"
-                                       placeholder="Comment here...." required="">
-                                <button class="btn btn-primary" type="submit"><i class="icon-long-arrow-right"></i>
+                                       placeholder="Comment here...." required="" style="margin-bottom: 0;">
+                                <button class="btn btn-primary" type="submit">POST <i class="icon-long-arrow-right"></i>
                                 </button>
                             </form>
                             @endauth
                             {{-- <h3>Reviews (2)</h3> --}}
                             @foreach($comments as $item)
-                            <div class="review">
+                            <div class="review" >
                                 <div class="row no-gutters">
-                                    <div class="col-auto">
+                                    <div class="col-4">
                                         <h4>{{$item->name}}</h4>
                                         <div class="ratings-container">
                                         </div><!-- End .rating-container -->
                                     </div><!-- End .col -->
-                                    <div class="col">
+                                    <div class="col-8">
                                         <h4>{{$item->comment}}</h4>
                                     </div><!-- End .col-auto -->
                                 </div><!-- End .row -->
