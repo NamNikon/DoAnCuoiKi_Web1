@@ -20,7 +20,7 @@ Route::get('/404', function () {
 
 Route::get('/active', function () {
     return view('auth.activeRequired');
-})->name('active');
+})->name('activeRequired');
 
 Route::get('/admin/dashboard', function () {
     return view('admin/mainLayout');
