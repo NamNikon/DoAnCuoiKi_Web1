@@ -70,6 +70,12 @@
                                                     Login
                                                 </a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('register') }}" role="button">
+                                                    <i class="fas fa-sign-in-alt"></i>
+                                                    Register
+                                                </a>
+                                            </li>
                                         @endif
                                     </li>
                                 </ul>

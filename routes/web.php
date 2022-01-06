@@ -17,6 +17,11 @@ Route::get('/', 'PagesController@Index');
 Route::get('/404', function () {
     return view('errors.404');
 })->name('404');
+
+Route::get('/active', function () {
+    return view('auth.activeRequired');
+})->name('active');
+
 Route::get('/admin/dashboard', function () {
     return view('admin/mainLayout');
 });
