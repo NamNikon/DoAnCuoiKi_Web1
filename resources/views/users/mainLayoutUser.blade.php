@@ -1315,7 +1315,7 @@
                                     <div class="product product-2">
                                         <figure class="product-media">
                                             <span class="product-label label-circle label-top">Top</span>
-                                            <a href="product/details">
+                                            <a href="product/details/{{$product->id}}">
                                                 <img src="{{ asset('images/' . $product->path) }}" alt="Product image" class="product-image">
                                             </a>
 
@@ -1325,7 +1325,7 @@
 
                                             <div class="product-action">
                                                 <a href="/product/add-to-cart/{{$product->id}}" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                                                <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
+                                               
                                             </div><!-- End .product-action -->
                                         </figure><!-- End .product-media -->
 
