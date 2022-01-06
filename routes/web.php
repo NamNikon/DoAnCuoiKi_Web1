@@ -46,8 +46,8 @@ Route::get('/user', 'PagesController@Index');
 
 Route::get('/search', 'PagesController@SearchProduct');
 
-Route::get('/product/details/{pid}', 'PagesController@DetailsProduct');
-
+Route::get('/product/details/{pid}', 'PagesController@DetailsProduct')->name('detail.product');
+Route::post('/product/details/{pid}', 'PagesController@CommentProduct')->name('comment.product');
 Route::get('/product/add-to-cart/{productId}', 'CartController@AddItem')->name('cart.add');
 Route::get('/product/remove-to-cart/{productId}', 'CartController@DeleteItem')->name('cart.remove');
 Route::get('/payment/checkout', 'CartController@CartDetail')->name('cart.list');
