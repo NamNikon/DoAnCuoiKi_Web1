@@ -1671,7 +1671,7 @@
   }
 
   // changeRole
-  $('#select_role').on('change', function() {
+  $('.select_role').on('change', function() {
     var id = $(this).closest('tr').attr('id');
     var value = $(this).val();
     console.log(id);
@@ -1759,25 +1759,26 @@
       headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       }
-  });
-  $.ajax({
-      type: "POST",
-      url: url,
-      data: {
-          value: value,
+    });
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: {
+            value: value,
+        },
+        success: function (data) {
+          console.log(data);
+          $("tbody").empty();
       },
-      success: function (data) {
-        console.log(data);
-     },
-     error: function (data, textStatus, errorThrown) {
-         console.log(data);
-     },
-  });
+      error: function (data, textStatus, errorThrown) {
+          console.log(data);
+      },
+    });
 
-  });
+  })
 
   // changeStatus
-  $('#select_status').on('change', function() {
+  $('.select_status').on('change', function() {
     var id = $(this).closest('tr').attr('id');
     var value = $(this).val();
     console.log(id);
