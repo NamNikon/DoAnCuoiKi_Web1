@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request as Req;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 
@@ -50,7 +51,11 @@ class PagesController extends BaseController
             ->where('products.id', $pid)
             ->take(1)
             ->get();
-
+        $comments = DB::table('user_cmt_product')
+            ->join('users', 'user_cmt_product.id_user', '=', 'users.id')
+            ->select('user_cmt_product.*', 'users.name')
+            ->where('id_product', '=', $pid)
+            ->get();
         $images_product = DB::table('image_details_product')
             ->join('images', 'images.id', '=', 'image_details_product.id_image')
             ->where('image_details_product.id_product', $pid)
@@ -64,8 +69,26 @@ class PagesController extends BaseController
         return view('users.products.productDetails', [
             'product' => $product,
             'images_product' => $images_product,
-            'information' => $information
+            'information' => $information,
+            'comments' => $comments
         ]);
+    }
+
+    public function CommentProduct(Req $request, $pid)
+    {
+        $userId = auth()->user()->id;
+
+        $content = $request->input('comment');
+
+        $result = DB::table('user_cmt_product')
+            ->insert([
+                'id_product' => $pid,
+                'id_user' => $userId,
+                'comment' => $content
+            ]);
+        if ($result) {
+            return redirect()->route('detail.product', ['pid' => $pid]);
+        }
     }
 
     public function SearchProduct()
