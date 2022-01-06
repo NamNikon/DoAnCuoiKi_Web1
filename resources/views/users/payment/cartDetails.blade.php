@@ -41,7 +41,7 @@
                                             <figure class="product-media">
                                                 <a href="#">
                                                     <img
-                                                        src="{{ asset('/users/assets/images/products/table/product-1.jpg') }}"
+                                                        src="{{ asset('images/' . $item->attributes->image) }}"
                                                         alt="Product image">
                                                 </a>
                                             </figure>
