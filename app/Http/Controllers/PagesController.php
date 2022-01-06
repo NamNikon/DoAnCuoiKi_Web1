@@ -76,7 +76,7 @@ class PagesController extends BaseController
             ->where('products.products_name', 'like', '%' . $key . '%')
             ->join('images', 'images.id', '=', 'products.id_image')
             ->select('products.*', 'images.path')
-            ->get();
+            ->paginate(10);
 
         return view('users.search.searchPage', ['products' => $products]);
     }
