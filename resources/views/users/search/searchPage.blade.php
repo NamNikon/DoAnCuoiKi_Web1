@@ -57,7 +57,7 @@
                            
                         </div><!-- End .row -->
                     </div><!-- End .products -->
-
+                    {{ $products->render('admin/common/paging') }}
 
                     <nav aria-label="Page navigation">
                         <ul class="pagination justify-content-center">
