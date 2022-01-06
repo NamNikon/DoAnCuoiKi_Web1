@@ -1723,7 +1723,6 @@
         $('#stt_year').show();
       break;
       case 3:
-        $('#stt_date1').show();
         $('#stt_date2').show();
       break;
     }
@@ -1750,8 +1749,8 @@
         value = $('#stt_year').val();
         break;
       case 3:
-        $('#stt_date1').show();
-        $('#stt_date2').show();
+        url = "/admin/statistic/quarter"
+        value = $('#stt_date2').val();
       break;
     }
 console.log(value);

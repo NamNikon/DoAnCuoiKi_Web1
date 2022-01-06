@@ -72,3 +72,4 @@ Route::get('admin/statistics', function () {
 Route::post('/admin/statistic/day', 'AdminController@statisticDay');
 Route::post('/admin/statistic/month', 'AdminController@statisticMonth');
 Route::post('/admin/statistic/year', 'AdminController@statisticYear');
+Route::post('/admin/statistic/quarter', 'AdminController@statisticQuarter');

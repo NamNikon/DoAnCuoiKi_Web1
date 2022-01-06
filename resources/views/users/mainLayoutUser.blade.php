@@ -601,7 +601,7 @@
 
                                 <div class="product-action">
                                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
+                                    <a href="#" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
 
@@ -1765,7 +1765,7 @@
                         <div class="product product-7">
                            
                             <figure class="product-media">
-                                <span class="product-label label-circle label-sale">Sale</span>
+                                
                                 <a href="product/details/{{$item->id}}">
                                     <img src="{{ asset('images/'. $item->path) }}" alt="Product image" class="product-image">
                                 </a>
@@ -1775,8 +1775,8 @@
                                 </div><!-- End .product-action -->
 
                                 <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
+                                    <a href="/product/add-to-cart/{{$item->id}}" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
+                                    <a href="#" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
 
@@ -1784,17 +1784,11 @@
                                 <div class="product-cat">
                                     <a href="#">Headphones</a>
                                 </div><!-- End .product-cat -->
-                                <h3 class="product-title"><a href="product/details">Beats by Dr. Dre Wireless  Headphones</a></h3><!-- End .product-title -->
+                                <h3 class="product-title"><a href="product/details/{{$item->id}}">{{$item->products_name}}</a></h3><!-- End .product-title -->
                                 <div class="product-price">
-                                    <span class="new-price">$279.99</span>
-                                    <span class="old-price">Was $349.99</span>
+                                    <span class="new-price">{{$item->price}} VND</span>
                                 </div><!-- End .product-price -->
-                                <div class="ratings-container">
-                                    <div class="ratings">
-                                        <div class="ratings-val" style="width: 40%;"></div><!-- End .ratings-val -->
-                                    </div><!-- End .ratings -->
-                                    <span class="ratings-text">( 4 Reviews )</span>
-                                </div><!-- End .rating-container -->
+                               
                             </div><!-- End .product-body -->
                             
                         </div><!-- End .product -->

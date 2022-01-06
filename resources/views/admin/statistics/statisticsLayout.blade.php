@@ -12,7 +12,7 @@
                  <option value="0" selected>Date</option>
                  <option value="1" >Month</option>
                  <option value="2" >Year</option>
-                 <option value="3" >Date to Date</option>
+                 <option value="3" >Quarterly</option>
             </select>
             <div class="dropDownSelect2"></div>
         </div>
@@ -29,7 +29,7 @@
 <div class="table-data__tool">
     <div class="table-data__tool-left">
       <input style="height: 100%; padding: 0px 10px;border-radius: 3px;color:#666;margin-right:10px;display:none;" 
-      type="date" name="stt_date2" id="stt_date2" value="{{ date('Y-m-d') }}">
+      type="number" name="stt_date2" id="stt_date2" value="1"  min="1" max="4">
     </div>
 </div>
 
@@ -48,7 +48,6 @@
       type="number" name="stt_year" id="stt_year" value="{{ now()->year  }}" min="1980" max="3000">
     </div>
 </div>
-
 
 
 <div class="table-data__tool">
