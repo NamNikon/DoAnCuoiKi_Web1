@@ -87,20 +87,6 @@ class AdminController extends BaseController
         } else {
             if (count($res->file('images')) >= 3)
             {
-                $lastItem = DB::table('images')
-                            ->orderBy('id', 'desc')
-                            ->first();
-                $idImage = $lastItem->id + 1;
-
-                foreach ($res->file('images') as $img) {
-
-                    $path = $img->store($idImage, ['disk' => 'my_files']);
-
-                    DB::table('images')->insert([
-                        'path' => $path,
-                    ]);
-                }
-
                 $idInfor = DB::table('information')
                         ->insertGetId([
                             'CPU' => $data['cpu'],
@@ -111,13 +97,40 @@ class AdminController extends BaseController
                             'Operating_system' => $data['operating_system'],
                             'WEIGHT' => $data['weight'],
                         ]);
-                DB::table('products')->insert([
+                $idProduct = DB::table('products')->insertGetId([
                     'products_name' => $data['name'],
                     'quantity' => $data['quantity'],
                     'price' => $data['price'],
                     'category' => $data['catId'],
                     'id_infomation' => $idInfor,
                 ]);
+
+                $lastItem = DB::table('images')
+                            ->orderBy('id', 'desc')
+                            ->first();
+                $folder = $lastItem->id + 1;
+
+                $idImage = 0;
+
+                foreach ($res->file('images') as $img) {
+
+                    $path = $img->store($folder, ['disk' => 'my_files']);
+
+                    $idImage = DB::table('images')
+                                ->insertGetId([
+                                    'path' => $path,
+                                ]);
+
+                    DB::table('image_details_product')->insert([
+                        'id_image' => $idImage,
+                        'id_product' => $idProduct,
+                    ]);
+                }
+                
+                DB::table('products')
+                    ->where('id', $idProduct)
+                    ->update(['id_image' => $idImage]);
+                
                 $msg = "Thêm sản phẩm thành công";
             } else {
                 $msg = "Thêm sản phẩm thất bại, số lượng ảnh tối thiểu phải là 3";

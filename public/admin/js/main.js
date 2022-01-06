@@ -1754,7 +1754,7 @@
         $('#stt_date2').show();
       break;
     }
-
+console.log(value);
     $.ajaxSetup({
       headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1769,6 +1769,14 @@
         success: function (data) {
           console.log(data);
           $("tbody").empty();
+
+          data.statistics.forEach(item => {
+            $("tbody").append("<tr><td>" +
+            item.create_at + "</td><td>" +
+                item.id + "</td><td>" + item.address +
+                "</td><td>" + item.total +
+                "</td></tr>");
+        });
       },
       error: function (data, textStatus, errorThrown) {
           console.log(data);
