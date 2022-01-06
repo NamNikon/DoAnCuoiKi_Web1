@@ -169,7 +169,7 @@ class AdminController extends BaseController
 
     public function statisticDay(Request $res)
     {
-        $day = $res->input('day');
+        $day = $res->input('value');
         $statistics = DB::table('orders')
                         ->whereDate('orders.create_at', $day)
                         ->get();
