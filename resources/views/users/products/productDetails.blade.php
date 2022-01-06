@@ -82,7 +82,7 @@
                         </li>
                        
                         <li class="nav-item">
-                            <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews (2)</a>
+                            <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews</a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -102,7 +102,11 @@
                        
                         <div class="tab-pane fade" id="product-review-tab" role="tabpanel" aria-labelledby="product-review-link">
                             <div class="reviews">
-                                <h3>Reviews (2)</h3>
+                                <form action="" method="post">
+                                    <input type="text" class="form-control" name="cmt" id="cmt" placeholder="Search product ..." required="">
+                                    <button class="btn btn-primary" type="submit"><i class="icon-long-arrow-right"></i></button>
+                                </form>
+                                {{-- <h3>Reviews (2)</h3> --}}
                                 <div class="review">
                                     <div class="row no-gutters">
                                         <div class="col-auto">
