@@ -43,7 +43,7 @@
                  <td>{{$user->created_at}}</td>
                  <td>
                  {{ csrf_field() }}
-                    <select name="select" id="select_role" class="my-select form-control">
+                    <select name="select" class="my-select form-control select_role">
                         @foreach ($roles as $key)
                         @if ($key->id ==  $user->role )
                             <option value="{{ $user->role }}"

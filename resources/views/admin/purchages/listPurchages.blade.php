@@ -35,7 +35,7 @@
               <td>
                 {{ csrf_field() }}
                     @if (@isset($listStatus))
-                    <select name="select" id="select_status" class="my-select form-control">
+                    <select name="select" class="my-select form-control select_status">
                         @foreach ($listStatus as $item)
                         @if ($item->id ==  $purchage->status_id )
                             <option value="{{ $purchage->status_id }}"
