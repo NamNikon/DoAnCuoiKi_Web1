@@ -199,4 +199,55 @@ class AdminController extends BaseController
         return response()->json(['statistics' => $statistics],200);
     }
 
+    public function statisticQuarter(Request $res)
+    {
+        $number = (int)$res->input('value');
+        $year = date("Y");
+        
+        $statistics = DB::table('orders')
+                        ->whereYear('orders.create_at', $year)
+                        ->whereMonth('orders.create_at', '1')
+                        ->orwhereMonth('orders.create_at', '2')
+                        ->orwhereMonth('orders.create_at', '3')
+                        ->get();
+        switch ($number) {
+            case 1:
+                $statistics = DB::table('orders')
+                    ->whereYear('orders.create_at', $year)
+                    ->whereMonth('orders.create_at', '1')
+                    ->orwhereMonth('orders.create_at', '2')
+                    ->orwhereMonth('orders.create_at', '3')
+                    ->get();
+              break;
+            case 2:
+                $statistics = DB::table('orders')
+                    ->whereYear('orders.create_at', $year)
+                    ->whereMonth('orders.create_at', '4')
+                    ->orwhereMonth('orders.create_at', '5')
+                    ->orwhereMonth('orders.create_at', '6')
+                    ->get();
+              break;
+            case 3:
+                $statistics = DB::table('orders')
+                    ->whereYear('orders.create_at', $year)
+                    ->whereMonth('orders.create_at', '7')
+                    ->orwhereMonth('orders.create_at', '8')
+                    ->orwhereMonth('orders.create_at', '9')
+                    ->get();
+              break;
+            case 4:
+                $statistics = DB::table('orders')
+                    ->whereYear('orders.create_at', $year)
+                    ->whereMonth('orders.create_at', '10')
+                    ->orwhereMonth('orders.create_at', '11')
+                    ->orwhereMonth('orders.create_at', '12')
+                    ->get();
+              break;
+            default:
+          }
+
+        
+        return response()->json(['statistics' => $statistics],200);
+    }
+
 }
