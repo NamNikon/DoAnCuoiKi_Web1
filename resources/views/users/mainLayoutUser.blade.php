@@ -2,10 +2,10 @@
 
     <main class="main">
         <div class="intro-slider-container mb-5">
-            <div class="intro-slider owl-carousel owl-theme owl-nav-inside owl-light" data-toggle="owl" 
+            <div class="intro-slider owl-carousel owl-theme owl-nav-inside owl-light" data-toggle="owl"
                 data-owl-options='{
                     "dots": true,
-                    "nav": false, 
+                    "nav": false,
                     "responsive": {
                         "1200": {
                             "nav": true,
@@ -66,7 +66,7 @@
 
         <div class="container">
             <h2 class="title text-center mb-4">Explore Popular Categories</h2><!-- End .title text-center -->
-            
+
             <div class="cat-blocks-container">
                 <div class="row">
                     @if (@isset($categories))
@@ -144,14 +144,14 @@
                     <h2 class="title">New Arrivals</h2><!-- End .title -->
                 </div><!-- End .heading-left -->
 
-              
+
             </div><!-- End .heading -->
 
             <div class="tab-content tab-content-carousel just-action-icons-sm">
                 <div class="tab-pane p-0 fade show active" id="new-all-tab" role="tabpanel" aria-labelledby="new-all-link">
-                    <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                    <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                            "nav": true, 
+                            "nav": true,
                             "dots": true,
                             "margin": 20,
                             "loop": false,
@@ -213,9 +213,9 @@
                     </div><!-- End .owl-carousel -->
                 </div><!-- .End .tab-pane -->
                 <div class="tab-pane p-0 fade" id="new-tv-tab" role="tabpanel" aria-labelledby="new-tv-link">
-                    <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                    <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                            "nav": true, 
+                            "nav": true,
                             "dots": true,
                             "margin": 20,
                             "loop": false,
@@ -422,9 +422,9 @@
                     </div><!-- End .owl-carousel -->
                 </div><!-- .End .tab-pane -->
                 <div class="tab-pane p-0 fade" id="new-computers-tab" role="tabpanel" aria-labelledby="new-computers-link">
-                    <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                    <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                            "nav": true, 
+                            "nav": true,
                             "dots": true,
                             "margin": 20,
                             "loop": false,
@@ -631,9 +631,9 @@
                     </div><!-- End .owl-carousel -->
                 </div><!-- .End .tab-pane -->
                 <div class="tab-pane p-0 fade" id="new-phones-tab" role="tabpanel" aria-labelledby="new-phones-link">
-                    <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                    <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                            "nav": true, 
+                            "nav": true,
                             "dots": true,
                             "margin": 20,
                             "loop": false,
@@ -874,9 +874,9 @@
                     </div><!-- End .owl-carousel -->
                 </div><!-- .End .tab-pane -->
                 <div class="tab-pane p-0 fade" id="new-watches-tab" role="tabpanel" aria-labelledby="new-watches-link">
-                    <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                    <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                            "nav": true, 
+                            "nav": true,
                             "dots": true,
                             "margin": 20,
                             "loop": false,
@@ -1049,9 +1049,9 @@
                     </div><!-- End .owl-carousel -->
                 </div><!-- .End .tab-pane -->
                 <div class="tab-pane p-0 fade" id="new-acc-tab" role="tabpanel" aria-labelledby="new-acc-link">
-                    <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                    <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                            "nav": true, 
+                            "nav": true,
                             "dots": true,
                             "margin": 20,
                             "loop": false,
@@ -1253,7 +1253,7 @@
         </div><!-- End .container -->
 
         <div class="mb-6"></div><!-- End .mb-6 -->
-        
+
 
         <div class="bg-light pt-5 pb-6">
             <div class="container trending-products">
@@ -1276,7 +1276,7 @@
                         </ul>
                     </div><!-- End .heading-right -->
                 </div><!-- End .heading -->
-                
+
                 <div class="row">
                     <div class="col-xl-5col d-none d-xl-block">
                         <div class="banner">
@@ -1289,9 +1289,9 @@
                     <div class="col-xl-4-5col">
                         <div class="tab-content tab-content-carousel just-action-icons-sm">
                             <div class="tab-pane p-0 fade show active" id="trending-top-tab" role="tabpanel" aria-labelledby="trending-top-link">
-                                <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                                <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl"
                                     data-owl-options='{
-                                        "nav": true, 
+                                        "nav": true,
                                         "dots": false,
                                         "margin": 20,
                                         "loop": false,
@@ -1325,7 +1325,7 @@
 
                                             <div class="product-action">
                                                 <a href="/product/add-to-cart/{{$product->id}}" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                                               
+
                                             </div><!-- End .product-action -->
                                         </figure><!-- End .product-media -->
 
@@ -1356,9 +1356,9 @@
                                 </div><!-- End .owl-carousel -->
                             </div><!-- .End .tab-pane -->
                             <div class="tab-pane p-0 fade" id="trending-best-tab" role="tabpanel" aria-labelledby="trending-best-link">
-                                <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                                <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl"
                                     data-owl-options='{
-                                        "nav": true, 
+                                        "nav": true,
                                         "dots": false,
                                         "margin": 20,
                                         "loop": false,
@@ -1562,9 +1562,9 @@
                                 </div><!-- End .owl-carousel -->
                             </div><!-- .End .tab-pane -->
                             <div class="tab-pane p-0 fade" id="trending-sale-tab" role="tabpanel" aria-labelledby="trending-sale-link">
-                                <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                                <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl"
                                     data-owl-options='{
-                                        "nav": true, 
+                                        "nav": true,
                                         "dots": false,
                                         "margin": 20,
                                         "loop": false,
@@ -1759,11 +1759,13 @@
             <div class="products">
                 <div class="row justify-content-center">
                     <div class="col-6 col-md-4 col-lg-3">
+                        @if (@isset($topLikeProducts))
+                            @foreach ($topLikeProducts as $item)
                         <div class="product product-2">
                             <figure class="product-media">
                                 <span class="product-label label-circle label-sale">Sale</span>
-                                <a href="product/details">
-                                    <img src="{{ asset('users/assets/images/demos/demo-4/products/product-10.jpg') }}" alt="Product image" class="product-image">
+                                <a href="product/details/{{$item->id}}">
+                                    <img src="{{ asset('images/'. $item->path) }}" alt="Product image" class="product-image">
                                 </a>
 
                                 <div class="product-action-vertical">
@@ -1801,10 +1803,12 @@
                                 </div><!-- End .product-nav -->
                             </div><!-- End .product-body -->
                         </div><!-- End .product -->
+                            @endforeach
+                        @endif
                     </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
 
-                    
-                  
+
+
                 </div><!-- End .row -->
             </div><!-- End .products -->
         </div><!-- End .container -->
@@ -1872,5 +1876,5 @@
             </div><!-- End .container -->
         </div><!-- End .icon-boxes-container -->
     </main><!-- End .main -->
-    
+
 @include('users.layouts.footer')
