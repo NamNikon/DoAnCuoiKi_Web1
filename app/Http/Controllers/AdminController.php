@@ -27,6 +27,12 @@ class AdminController extends BaseController
         return redirect('admin/user-manage');
     }
 
+    
+    public function removeProduct($id){
+        DB::table('products')->where('id', '=', $id)->delete();
+        return redirect('admin/product-list');
+    }
+
     public function changeRole(Request $res)
     {
         $data = $res->input();
@@ -41,6 +47,7 @@ class AdminController extends BaseController
                     ->join('information', 'products.id_infomation', '=', 'information.id')
                     ->join('categories', 'products.category', '=', 'categories.id')
                     ->orderBy('products.id')
+                    ->select('products.*', 'categories.name')
                     ->paginate($this->limit);
         return view('admin.mainLayout', [
             'products' => $products

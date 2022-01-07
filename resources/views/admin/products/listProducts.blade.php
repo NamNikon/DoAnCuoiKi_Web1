@@ -28,7 +28,7 @@
                 <td>{{$product->liked}}</td>
                 <td>
                     <div class="table-data-feature">
-                        <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                        <a href="/admin/delete/product/{{$product->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                             <i class="zmdi zmdi-delete"></i>
                        </a>
                     </div>
